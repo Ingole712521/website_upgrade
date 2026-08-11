@@ -1,3 +1,4 @@
+import { AmbientBackground } from '@/components/layout/ambient-background'
 import {
   Hero,
   Trust,
@@ -15,19 +16,22 @@ import {
 
 export function HomePage() {
   return (
-    <main className="relative">
-      <Hero />
-      <Trust />
-      <TechStack />
-      <Services />
-      <Industries />
-      <Technology />
-      <Process />
-      <MicroGcc />
-      <WhyZcon />
-      <CaseStudies />
-      <Careers />
-      <Contact />
+    <main className="relative isolate">
+      <AmbientBackground />
+      <div className="relative z-10">
+        <Hero />
+        <Trust />
+        <TechStack />
+        <Services />
+        <Industries />
+        <Technology />
+        <Process />
+        <MicroGcc />
+        <WhyZcon />
+        <CaseStudies />
+        <Careers />
+        <Contact />
+      </div>
     </main>
   )
 }
