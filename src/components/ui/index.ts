@@ -1,3 +1,5 @@
 export { Button, buttonVariants } from './button'
 export { Reveal, staggerContainer, staggerItem } from './reveal'
 export { CtaButton, Eyebrow, Section, SectionHeading } from './section'
+export { SolarSystem, DEFAULT_ORBITS } from './solar-system'
+export type { SolarSystemItem, OrbitConfig, SolarSystemProps } from './solar-system'
