@@ -46,7 +46,7 @@ export function Careers() {
             )
           })}
           <div className="sm:col-span-2">
-            <CtaButton href="/contact" variant="outline" className="w-full sm:w-auto">
+            <CtaButton href="/careers" variant="outline" className="w-full sm:w-auto">
               View open roles
               <ArrowRight className="h-4 w-4" />
             </CtaButton>

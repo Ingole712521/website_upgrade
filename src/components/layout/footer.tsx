@@ -31,6 +31,16 @@ const columns = [
       { label: 'Manufacturing', to: '/industries/manufacturing' },
     ],
   },
+  {
+    title: 'Company',
+    links: [
+      { label: 'About', to: '/about' },
+      { label: 'Leadership', to: '/leadership' },
+      { label: 'Careers', to: '/careers' },
+      { label: 'Insights', to: '/insights' },
+      { label: 'Contact', to: '/contact' },
+    ],
+  },
 ]
 
 export function Footer() {
@@ -43,7 +53,7 @@ export function Footer() {
       className="border-t border-border bg-card/40 px-5 py-14 sm:px-8"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr_1fr]">
           <motion.div variants={staggerItem}>
             <Link to="/" aria-label="zCon Solutions home">
               <Logo variant="wordmark" size="lg" />

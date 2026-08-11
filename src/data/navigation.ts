@@ -101,22 +101,22 @@ export const navGroups: NavGroup[] = [
       {
         label: 'About Us',
         description: 'Engineering discipline since 2006',
-        to: '/#why',
+        to: '/about',
+      },
+      {
+        label: 'Leadership',
+        description: 'The architects of innovation',
+        to: '/leadership',
       },
       {
         label: 'Careers',
         description: 'Build with us',
-        to: '/#careers',
+        to: '/careers',
       },
       {
         label: 'Insights',
         description: 'Ideas & engineering notes',
-        to: '/contact',
-      },
-      {
-        label: 'Blogs',
-        description: 'Latest from zCon',
-        to: '/contact',
+        to: '/insights',
       },
     ],
   },

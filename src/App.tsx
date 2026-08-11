@@ -3,13 +3,17 @@ import { SmoothScrollProvider, ThemeProvider } from '@/components/providers'
 import { RootLayout } from '@/components/layout/root-layout'
 import { ScrollToTop } from '@/components/layout/scroll-to-top'
 import {
+  AboutPage,
   AiProductEngineeringPage,
   AiSoftwarePlmPage,
+  CareersPage,
   CaseStudiesPage,
   ContactPage,
   HealthcarePage,
   HomePage,
+  InsightsPage,
   KnowledgeGraphsPage,
+  LeadershipPage,
   LegacyMaintenancePage,
   ManufacturingPage,
   MicroGccPage,
@@ -47,6 +51,10 @@ function App() {
               <Route path="industries/healthcare" element={<HealthcarePage />} />
               <Route path="industries/pharma" element={<PharmaPage />} />
               <Route path="industries/manufacturing" element={<ManufacturingPage />} />
+              <Route path="about" element={<AboutPage />} />
+              <Route path="leadership" element={<LeadershipPage />} />
+              <Route path="careers" element={<CareersPage />} />
+              <Route path="insights" element={<InsightsPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
             <Route path="/home" element={<Navigate to="/" replace />} />
