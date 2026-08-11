@@ -62,7 +62,7 @@ export function CaseStudies() {
           <motion.article
             key={item.title}
             variants={staggerItem}
-            className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_24px_60px_-40px_rgba(0,150,230,0.6)]"
+            className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_24px_60px_-40px_rgba(244,63,94,0.45)]"
           >
             <div className="relative aspect-[16/9] overflow-hidden border-b border-border">
               <img

@@ -16,7 +16,7 @@ export function Technology() {
           className="pointer-events-none absolute inset-0 opacity-60"
           style={{
             background:
-              'radial-gradient(ellipse 55% 50% at 50% 45%, color-mix(in srgb, var(--primary) 18%, transparent), transparent 70%)',
+              'radial-gradient(ellipse 55% 50% at 50% 45%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%), radial-gradient(ellipse 40% 35% at 70% 30%, color-mix(in srgb, var(--primary) 10%, transparent), transparent 65%)',
           }}
         />
         <SolarSystem

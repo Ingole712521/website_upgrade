@@ -10,7 +10,7 @@ export function CtaButton({
 }: ComponentProps<'a'> & { variant?: 'primary' | 'outline' | 'ghost' }) {
   const styles = {
     primary:
-      'bg-primary text-primary-foreground shadow-[0_1px_0_rgba(255,255,255,0.15)_inset,0_8px_24px_-8px_rgba(0,150,230,0.6)] hover:bg-primary/90',
+      'bg-primary text-primary-foreground shadow-[0_1px_0_rgba(255,255,255,0.12)_inset,0_8px_24px_-8px_rgba(58,174,240,0.45)] hover:bg-primary/90',
     outline:
       'border border-border bg-card/60 text-foreground backdrop-blur hover:border-foreground/25 hover:bg-card',
     ghost: 'text-foreground/80 hover:text-foreground',

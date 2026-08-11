@@ -115,7 +115,7 @@ export function Contact() {
                 </label>
                 <button
                   type="submit"
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-medium text-primary-foreground shadow-[0_8px_24px_-10px_rgba(0,150,230,0.7)] transition-colors hover:bg-primary/90"
+                  className="mt-8 inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-medium text-primary-foreground shadow-[0_8px_24px_-10px_rgba(244,63,94,0.5)] transition-colors hover:bg-primary/90"
                 >
                   Book Consultation
                   <ArrowRight className="h-4 w-4" />

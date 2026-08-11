@@ -222,13 +222,13 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
     const [hoveredId, setHoveredId] = useState<string | null>(null)
 
     const dustItems = [
-      { delay: '-4s', radius: '165px', color: '#0096e6' },
-      { delay: '-11s', radius: '260px', color: '#38bdf8' },
-      { delay: '-19s', radius: '340px', color: '#e11d48' },
-      { delay: '-28s', radius: '395px', color: '#0096e6' },
-      { delay: '-7s', radius: '200px', color: '#a855f7' },
-      { delay: '-15s', radius: '365px', color: '#eab308' },
-      { delay: '-23s', radius: '430px', color: '#38bdf8' },
+      { delay: '-4s', radius: '165px', color: '#f43f5e' },
+      { delay: '-11s', radius: '260px', color: '#3aaef0' },
+      { delay: '-19s', radius: '340px', color: '#facc15' },
+      { delay: '-28s', radius: '395px', color: '#f43f5e' },
+      { delay: '-7s', radius: '200px', color: '#a78bfa' },
+      { delay: '-15s', radius: '365px', color: '#3aaef0' },
+      { delay: '-23s', radius: '430px', color: '#fb7185' },
     ]
 
     const playState = isPaused ? 'paused' : 'running'
@@ -258,29 +258,29 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
               transformStyle: 'preserve-3d',
             }}
           >
-            <div className="animate-ss-sun-pulse absolute z-10 h-[90px] w-[90px] rounded-full bg-primary/25 blur-md md:h-[120px] md:w-[120px]" />
+            <div className="animate-ss-sun-pulse absolute z-10 h-[90px] w-[90px] rounded-full bg-accent/20 blur-md md:h-[120px] md:w-[120px]" />
 
             {centerLogo ? (
               typeof centerLogo === 'string' ? (
                 <img
-                  className="relative z-20 h-14 w-14 rounded-full border-2 border-primary/40 object-cover shadow-[0_0_30px_rgba(0,150,230,0.35)] md:h-20 md:w-20"
+                  className="relative z-20 h-14 w-14 rounded-full border-2 border-accent/35 object-cover shadow-[0_0_30px_rgba(244,63,94,0.3)] md:h-20 md:w-20"
                   src={centerLogo}
                   alt={centerLogoAlt}
                   width={80}
                   height={80}
                 />
               ) : (
-                <div className="relative z-20 flex h-14 w-14 items-center justify-center rounded-full border-2 border-primary/40 bg-background p-2 shadow-[0_0_30px_rgba(0,150,230,0.35)] md:h-20 md:w-20">
+                <div className="relative z-20 flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent/35 bg-background p-2 shadow-[0_0_30px_rgba(244,63,94,0.3)] md:h-20 md:w-20">
                   {centerLogo}
                 </div>
               )
             ) : (
-              <div className="relative z-20 flex h-14 w-14 items-center justify-center rounded-full border-2 border-primary/40 bg-background p-2 shadow-[0_0_30px_rgba(0,150,230,0.35)] md:h-20 md:w-20">
-                <OrbitIcon className="h-8 w-8 animate-spin text-primary" style={{ animationDuration: '10s' }} />
+              <div className="relative z-20 flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent/35 bg-background p-2 shadow-[0_0_30px_rgba(244,63,94,0.3)] md:h-20 md:w-20">
+                <OrbitIcon className="h-8 w-8 animate-spin text-accent" style={{ animationDuration: '10s' }} />
               </div>
             )}
 
-            <div className="animate-ss-spin-cw pointer-events-none absolute h-[110px] w-[110px] rounded-full border border-dashed border-primary/25 md:h-[140px] md:w-[140px]" />
+            <div className="animate-ss-spin-cw pointer-events-none absolute h-[110px] w-[110px] rounded-full border border-dashed border-accent/20 md:h-[140px] md:w-[140px]" />
             <div className="animate-ss-spin-ccw pointer-events-none absolute h-[150px] w-[150px] rounded-full border border-dashed border-primary/15 md:h-[185px] md:w-[185px]" />
           </div>
 

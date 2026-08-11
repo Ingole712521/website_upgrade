@@ -86,7 +86,7 @@ export function Services() {
               key={service.title}
               variants={staggerItem}
               className={cn(
-                'group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_20px_50px_-30px_rgba(0,150,230,0.5)]',
+                'group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/35 hover:shadow-[0_20px_50px_-30px_rgba(244,63,94,0.4)]',
                 service.className,
               )}
             >

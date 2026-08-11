@@ -10,9 +10,10 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden px-5 pb-16 pt-32 sm:px-8 sm:pt-36 md:pb-24">
       {/* background */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 grid-bg mask-radial opacity-70" />
-        <div className="absolute left-1/2 top-[-10%] h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(0,150,230,0.18),transparent_60%)] blur-2xl" />
-        <div className="absolute right-[8%] top-[30%] h-[280px] w-[280px] rounded-full bg-[radial-gradient(circle,rgba(225,29,72,0.12),transparent_60%)] blur-2xl" />
+        <div className="absolute inset-0 grid-bg mask-radial opacity-50 dark:opacity-40" />
+        <div className="absolute left-1/2 top-[-10%] h-[520px] w-[820px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(244,63,94,0.16),transparent_62%)] blur-2xl" />
+        <div className="absolute right-[8%] top-[30%] h-[280px] w-[280px] rounded-full bg-[radial-gradient(circle,rgba(58,174,240,0.1),transparent_60%)] blur-2xl" />
+        <div className="absolute bottom-[5%] left-[10%] h-[220px] w-[220px] rounded-full bg-[radial-gradient(circle,rgba(250,204,21,0.06),transparent_65%)] blur-2xl" />
       </div>
 
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">

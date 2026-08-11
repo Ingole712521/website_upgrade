@@ -38,7 +38,7 @@ export function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Link to="/" aria-label="zCon Solutions home">
-              <Logo />
+              <Logo variant="wordmark" size="lg" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
               AI-first enterprise engineering and innovation partner. Engineering tomorrow&apos;s

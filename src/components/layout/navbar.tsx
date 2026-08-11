@@ -36,8 +36,8 @@ export function Navbar() {
             : 'border-transparent bg-transparent',
         )}
       >
-        <Link to="/" aria-label="zCon Solutions home" className="pl-1">
-          <Logo />
+        <Link to="/" aria-label="zCon Solutions home" className="pl-0.5 sm:pl-1">
+          <Logo variant="wordmark" size="md" />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
@@ -56,7 +56,7 @@ export function Navbar() {
           <ThemeToggle />
           <Link
             to="/#contact"
-            className="hidden h-9 items-center gap-1.5 rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground shadow-[0_8px_24px_-10px_rgba(0,150,230,0.7)] transition-colors hover:bg-primary/90 sm:inline-flex"
+            className="hidden h-9 items-center gap-1.5 rounded-lg bg-primary px-4 text-sm font-medium text-primary-foreground shadow-[0_8px_24px_-10px_rgba(244,63,94,0.45)] transition-colors hover:bg-primary/90 sm:inline-flex"
           >
             Book Consultation
             <ArrowUpRight className="h-4 w-4" />
