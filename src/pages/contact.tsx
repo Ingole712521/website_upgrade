@@ -64,14 +64,6 @@ export function ContactPage() {
           '-=0.35',
         )
       }
-
-      gsap.to(right, {
-        y: -6,
-        duration: 4,
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1,
-      })
     }, root)
 
     return () => ctx.revert()
