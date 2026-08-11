@@ -23,12 +23,12 @@ const columns = [
     ],
   },
   {
-    title: 'Resources',
+    title: 'Industries',
     links: [
-      { label: 'Technology', to: '/technologies' },
-      { label: 'Delivery Process', to: '/#process' },
-      { label: 'Why zCon', to: '/#why' },
-      { label: 'Contact', to: '/contact' },
+      { label: 'Real Estate', to: '/industries/real-estate' },
+      { label: 'Healthcare', to: '/industries/healthcare' },
+      { label: 'Pharma', to: '/industries/pharma' },
+      { label: 'Manufacturing', to: '/industries/manufacturing' },
     ],
   },
 ]

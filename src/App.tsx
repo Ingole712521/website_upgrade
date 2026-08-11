@@ -7,11 +7,15 @@ import {
   AiSoftwarePlmPage,
   CaseStudiesPage,
   ContactPage,
+  HealthcarePage,
   HomePage,
   KnowledgeGraphsPage,
   LegacyMaintenancePage,
+  ManufacturingPage,
   MicroGccPage,
   NotFoundPage,
+  PharmaPage,
+  RealEstatePage,
   TalentPodsPage,
   TechnologiesPage,
   UiUxModernizationPage,
@@ -39,6 +43,10 @@ function App() {
               <Route path="engagement/micro-gcc" element={<MicroGccPage />} />
               <Route path="engagement/talent-pods" element={<TalentPodsPage />} />
               <Route path="case-studies" element={<CaseStudiesPage />} />
+              <Route path="industries/real-estate" element={<RealEstatePage />} />
+              <Route path="industries/healthcare" element={<HealthcarePage />} />
+              <Route path="industries/pharma" element={<PharmaPage />} />
+              <Route path="industries/manufacturing" element={<ManufacturingPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
             <Route path="/home" element={<Navigate to="/" replace />} />

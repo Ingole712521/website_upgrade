@@ -75,22 +75,22 @@ export const navGroups: NavGroup[] = [
       {
         label: 'Real Estate & PropTech',
         description: 'AI listings, bots & insights',
-        to: '/#industries',
+        to: '/industries/real-estate',
       },
       {
         label: 'Healthcare Technology',
         description: 'EHR, integrations & patient access',
-        to: '/#industries',
+        to: '/industries/healthcare',
       },
       {
         label: 'Pharma & Life Sciences',
         description: 'Pricing, GtN & Rx workflows',
-        to: '/#industries',
+        to: '/industries/pharma',
       },
       {
         label: 'Manufacturing & Supply Chain',
         description: 'Digital twins & compliance',
-        to: '/#industries',
+        to: '/industries/manufacturing',
       },
     ],
   },

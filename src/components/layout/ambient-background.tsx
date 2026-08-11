@@ -9,10 +9,6 @@ type Particle = {
   r: number
 }
 
-/**
- * Soft professional ambient motion for the homepage:
- * drifting aurora orbs + a subtle connected-particle field.
- */
 export function AmbientBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const orbARef = useRef<HTMLDivElement>(null)

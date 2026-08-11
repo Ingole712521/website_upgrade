@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import {
   Building2,
@@ -12,12 +13,12 @@ import {
 import { Section, SectionHeading } from '@/components/ui/section'
 import { staggerContainer, staggerItem } from '@/components/ui/reveal'
 
-const industries: { name: string; icon: LucideIcon; blurb: string }[] = [
-  { name: 'Healthcare', icon: HeartPulse, blurb: 'HIPAA-ready platforms & clinical AI' },
-  { name: 'Pharma', icon: Pill, blurb: 'R&D data & compliance systems' },
-  { name: 'Manufacturing', icon: Factory, blurb: 'Smart factory & IoT telemetry' },
-  { name: 'Supply Chain', icon: Truck, blurb: 'Predictive logistics & visibility' },
-  { name: 'Real Estate', icon: Building2, blurb: 'PropTech & portfolio intelligence' },
+const industries: { name: string; icon: LucideIcon; blurb: string; to?: string }[] = [
+  { name: 'Healthcare', icon: HeartPulse, blurb: 'HIPAA-ready platforms & clinical AI', to: '/industries/healthcare' },
+  { name: 'Pharma', icon: Pill, blurb: 'R&D data & compliance systems', to: '/industries/pharma' },
+  { name: 'Manufacturing', icon: Factory, blurb: 'Smart factory & IoT telemetry', to: '/industries/manufacturing' },
+  { name: 'Supply Chain', icon: Truck, blurb: 'Predictive logistics & visibility', to: '/industries/manufacturing' },
+  { name: 'Real Estate', icon: Building2, blurb: 'PropTech & portfolio intelligence', to: '/industries/real-estate' },
   { name: 'Finance', icon: Landmark, blurb: 'Risk, fraud & regulated workloads' },
   { name: 'Education', icon: GraduationCap, blurb: 'Adaptive learning platforms' },
 ]
@@ -40,12 +41,11 @@ export function Industries() {
       >
         {industries.map((industry) => {
           const Icon = industry.icon
-          return (
-            <motion.article
-              key={industry.name}
-              variants={staggerItem}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40"
-            >
+          const cardClassName =
+            'group relative overflow-hidden rounded-2xl border border-border bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40'
+
+          const content = (
+            <>
               <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                 <Icon className="h-5 w-5" />
               </span>
@@ -57,6 +57,18 @@ export function Industries() {
                 aria-hidden
                 className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-[#e11d48] transition-all duration-300 group-hover:w-full"
               />
+            </>
+          )
+
+          return (
+            <motion.article key={industry.name} variants={staggerItem}>
+              {industry.to ? (
+                <Link to={industry.to} className={`block ${cardClassName}`}>
+                  {content}
+                </Link>
+              ) : (
+                <div className={cardClassName}>{content}</div>
+              )}
             </motion.article>
           )
         })}
