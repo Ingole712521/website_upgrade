@@ -11,6 +11,19 @@ import {
 gsap.registerPlugin(ScrollTrigger)
 
 function TechLogo({ item }: { item: TechItem }) {
+  if (item.logo) {
+    return (
+      <img
+        src={item.logo}
+        alt=""
+        aria-hidden
+        className="h-5 w-5 shrink-0 object-contain opacity-90 dark:opacity-85"
+        loading="lazy"
+        decoding="async"
+      />
+    )
+  }
+
   if (item.slug) {
     return (
       <img

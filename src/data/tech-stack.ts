@@ -1,6 +1,8 @@
 export type TechItem = {
   name: string
-  /** simpleicons.org slug; omit for custom/fallback mark */
+  /** Local asset under /public */
+  logo?: string
+  /** simpleicons.org slug fallback when no local logo */
   slug?: string
 }
 
@@ -9,11 +11,11 @@ export const techStack: TechItem[] = [
   { name: 'Ollama', slug: 'ollama' },
   { name: 'React', slug: 'react' },
   { name: 'SAP', slug: 'sap' },
-  { name: 'Azure', slug: 'microsoftazure' },
+  { name: 'Azure', logo: '/Logo/azure.png' },
   { name: 'VLLM' },
-  { name: 'Neo4j', slug: 'neo4j' },
+  { name: 'Neo4j', logo: '/Logo/neo4j.png' },
   { name: 'Claude', slug: 'anthropic' },
-  { name: 'Codex', slug: 'openai' },
+  { name: 'Codex', logo: '/Logo/codex.svg' },
   { name: 'OpenAI', slug: 'openai' },
   { name: 'Agentic AI' },
   { name: 'Copilot', slug: 'githubcopilot' },
