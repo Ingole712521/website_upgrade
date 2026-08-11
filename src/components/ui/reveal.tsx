@@ -1,13 +1,26 @@
-import { motion, type HTMLMotionProps, type Variants } from 'motion/react'
+import { motion, useReducedMotion, type HTMLMotionProps, type Variants } from 'motion/react'
 import type { ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 
 export const motionEase = [0.21, 0.47, 0.32, 0.98] as const
 
+export const springSoft = { type: 'spring' as const, stiffness: 320, damping: 28, mass: 0.8 }
+export const springSnappy = { type: 'spring' as const, stiffness: 420, damping: 32, mass: 0.7 }
+export const springLayout = { type: 'spring' as const, stiffness: 380, damping: 34 }
+
+export const viewportOnce = { once: true, margin: '-80px' as const }
+
 export const staggerContainer: Variants = {
   hidden: {},
   show: {
-    transition: { staggerChildren: 0.09, delayChildren: 0.06 },
+    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
+  },
+}
+
+export const staggerFast: Variants = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.06, delayChildren: 0.04 },
   },
 }
 
@@ -25,6 +38,25 @@ export const fadeUp: Variants = {
   show: {
     opacity: 1,
     y: 0,
+    transition: { duration: 0.65, ease: motionEase },
+  },
+}
+
+export const fadeScale: Variants = {
+  hidden: { opacity: 0, scale: 0.96, y: 16 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: motionEase },
+  },
+}
+
+export const slideInRight: Variants = {
+  hidden: { opacity: 0, x: 28 },
+  show: {
+    opacity: 1,
+    x: 0,
     transition: { duration: 0.65, ease: motionEase },
   },
 }
@@ -48,7 +80,7 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
+      viewport={viewportOnce}
       transition={{ duration: 0.6, ease: motionEase, delay }}
     >
       {children}
@@ -80,5 +112,20 @@ export function MotionSection({ children, className, delay = 0, ...props }: Moti
     >
       {children}
     </motion.div>
+  )
+}
+
+/** Soft page enter used by service/capability pages */
+export function PageEnter({ children, className }: { children: ReactNode; className?: string }) {
+  const reduce = useReducedMotion()
+  return (
+    <motion.main
+      className={cn('relative isolate', className)}
+      initial={reduce ? false : { opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: motionEase }}
+    >
+      {children}
+    </motion.main>
   )
 }

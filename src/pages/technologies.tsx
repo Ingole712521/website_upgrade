@@ -10,7 +10,7 @@ import { AmbientBackground } from '@/components/layout/ambient-background'
 import { ServiceCta } from '@/components/ui/service-cta'
 import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
 import { Section, SectionHeading } from '@/components/ui/section'
-import { motionEase, staggerContainer, staggerItem } from '@/components/ui/reveal'
+import { PageEnter, springSoft, staggerContainer, staggerItem, viewportOnce } from '@/components/ui/reveal'
 
 type TechGroup = {
   title: string
@@ -104,12 +104,7 @@ const categories: TechCategory[] = [
 
 export function TechnologiesPage() {
   return (
-    <motion.main
-      className="relative isolate"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.45, ease: motionEase }}
-    >
+    <PageEnter>
       <AmbientBackground />
       <div className="relative z-10">
         <ServiceHero
@@ -151,12 +146,16 @@ export function TechnologiesPage() {
                   variants={staggerContainer}
                   initial="hidden"
                   whileInView="show"
-                  viewport={{ once: true, margin: '-80px' }}
+                  viewport={viewportOnce}
                 >
                   <motion.div variants={staggerItem} className="mb-5 flex items-center gap-3">
-                    <span className="grid h-11 w-11 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+                    <motion.span
+                      whileHover={{ rotate: -6, scale: 1.06 }}
+                      transition={springSoft}
+                      className="grid h-11 w-11 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary"
+                    >
                       <Icon className="h-5 w-5" />
-                    </span>
+                    </motion.span>
                     <h3 className="font-heading text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
                       {category.title}
                     </h3>
@@ -167,7 +166,9 @@ export function TechnologiesPage() {
                       <motion.article
                         key={group.title}
                         variants={staggerItem}
-                        className="group rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/35"
+                        whileHover={{ y: -5 }}
+                        transition={springSoft}
+                        className="group rounded-2xl border border-border bg-card p-5 hover:border-primary/35"
                       >
                         <h4 className="font-heading text-base font-semibold text-foreground">
                           {group.title}
@@ -176,7 +177,7 @@ export function TechnologiesPage() {
                           {group.items.map((item) => (
                             <li
                               key={item}
-                              className="flex items-center gap-2 text-sm text-muted-foreground"
+                              className="flex items-center gap-2 text-sm text-muted-foreground transition-colors group-hover:text-foreground/80"
                             >
                               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                               {item}
@@ -198,6 +199,6 @@ export function TechnologiesPage() {
           cta="Start a conversation"
         />
       </div>
-    </motion.main>
+    </PageEnter>
   )
 }

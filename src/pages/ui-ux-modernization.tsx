@@ -19,7 +19,7 @@ import {
   ServiceHeroVisual,
 } from '@/components/ui/service-page'
 import { Section, SectionHeading } from '@/components/ui/section'
-import { fadeUp, motionEase, staggerContainer, staggerItem } from '@/components/ui/reveal'
+import { fadeUp, motionEase, PageEnter, springSnappy, springSoft, staggerContainer, staggerItem, viewportOnce } from '@/components/ui/reveal'
 
 const capabilities = [
   {
@@ -75,12 +75,7 @@ const modernMetrics = [
 
 export function UiUxModernizationPage() {
   return (
-    <motion.main
-      className="relative isolate"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.45, ease: motionEase }}
-    >
+    <PageEnter>
       <AmbientBackground />
       <div className="relative z-10">
         <ServiceHero
@@ -133,20 +128,29 @@ export function UiUxModernizationPage() {
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={viewportOnce}
             className="mt-12 overflow-hidden rounded-3xl border border-border bg-card p-4 sm:p-6"
           >
             <div className="grid items-stretch gap-4 lg:grid-cols-[1fr_auto_1fr]">
-              <div className="rounded-2xl border border-border bg-muted/40 p-5 dark:bg-background/50">
+              <motion.div
+                initial={{ opacity: 0, x: -18 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={viewportOnce}
+                transition={{ duration: 0.55, ease: motionEase }}
+                className="rounded-2xl border border-border bg-muted/40 p-5 dark:bg-background/50"
+              >
                 <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
                   Legacy interface
                 </p>
                 <div className="mt-4 space-y-2">
-                  {[88, 64, 76, 52, 70].map((w) => (
-                    <div
+                  {[88, 64, 76, 52, 70].map((w, i) => (
+                    <motion.div
                       key={w}
+                      initial={{ width: 0, opacity: 0.4 }}
+                      whileInView={{ width: `${w}%`, opacity: 1 }}
+                      viewport={viewportOnce}
+                      transition={{ duration: 0.55, delay: 0.08 * i, ease: motionEase }}
                       className="h-8 rounded-lg bg-border/80"
-                      style={{ width: `${w}%` }}
                     />
                   ))}
                 </div>
@@ -158,29 +162,43 @@ export function UiUxModernizationPage() {
                     Hidden status
                   </span>
                 </div>
-              </div>
+              </motion.div>
 
               <div className="flex flex-row items-center justify-center gap-3 py-2 lg:flex-col lg:px-2">
                 {[
                   { label: 'Audit', icon: ArrowDown },
                   { label: 'Systemize', icon: Sparkles },
                   { label: 'Ship', icon: ArrowDown },
-                ].map((step) => {
+                ].map((step, i) => {
                   const Icon = step.icon
                   return (
-                    <div key={step.label} className="flex flex-col items-center gap-1.5">
+                    <motion.div
+                      key={step.label}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={viewportOnce}
+                      transition={{ ...springSnappy, delay: 0.12 * i }}
+                      whileHover={{ scale: 1.08 }}
+                      className="flex flex-col items-center gap-1.5"
+                    >
                       <span className="grid h-10 w-10 place-items-center rounded-full border border-primary/30 bg-primary/10 text-primary">
                         <Icon className="h-4 w-4" />
                       </span>
                       <span className="font-mono text-[0.6rem] uppercase tracking-[0.12em] text-muted-foreground">
                         {step.label}
                       </span>
-                    </div>
+                    </motion.div>
                   )
                 })}
               </div>
 
-              <div className="rounded-2xl border border-primary/25 bg-linear-to-br from-primary/10 via-card to-accent/10 p-5">
+              <motion.div
+                initial={{ opacity: 0, x: 18 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={viewportOnce}
+                transition={{ duration: 0.55, ease: motionEase, delay: 0.08 }}
+                className="rounded-2xl border border-primary/25 bg-linear-to-br from-primary/10 via-card to-accent/10 p-5"
+              >
                 <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-primary">
                   zCon modernized UI
                 </p>
@@ -211,6 +229,8 @@ export function UiUxModernizationPage() {
                       <motion.div
                         key={metric.label}
                         variants={staggerItem}
+                        whileHover={{ y: -2 }}
+                        transition={springSoft}
                         className="rounded-xl border border-border bg-background/80 p-3"
                       >
                         <Icon className="h-4 w-4 text-primary" />
@@ -233,7 +253,7 @@ export function UiUxModernizationPage() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </Section>
@@ -244,6 +264,6 @@ export function UiUxModernizationPage() {
           cta="Start a conversation"
         />
       </div>
-    </motion.main>
+    </PageEnter>
   )
 }

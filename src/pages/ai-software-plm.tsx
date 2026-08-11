@@ -1,4 +1,3 @@
-import { motion } from 'motion/react'
 import {
   Activity,
   BriefcaseBusiness,
@@ -15,7 +14,7 @@ import {
   ServiceHero,
   ServiceHeroVisual,
 } from '@/components/ui/service-page'
-import { motionEase } from '@/components/ui/reveal'
+import { PageEnter } from '@/components/ui/reveal'
 
 const capabilities = [
   {
@@ -79,12 +78,7 @@ const notes = [
 
 export function AiSoftwarePlmPage() {
   return (
-    <motion.main
-      className="relative isolate"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.45, ease: motionEase }}
-    >
+    <PageEnter>
       <AmbientBackground />
       <div className="relative z-10">
         <ServiceHero
@@ -131,6 +125,6 @@ export function AiSoftwarePlmPage() {
           cta="Audit Your Pipeline"
         />
       </div>
-    </motion.main>
+    </PageEnter>
   )
 }

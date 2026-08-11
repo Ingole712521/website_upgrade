@@ -1,8 +1,18 @@
 import type { ReactNode } from 'react'
-import { motion } from 'motion/react'
+import { motion, useReducedMotion } from 'motion/react'
 import { ArrowRight, type LucideIcon } from 'lucide-react'
+import { cn } from '@/lib/utils'
 import { CtaButton, Eyebrow, Section, SectionHeading } from '@/components/ui/section'
-import { staggerContainer, staggerItem } from '@/components/ui/reveal'
+import {
+  fadeScale,
+  motionEase,
+  springSnappy,
+  springSoft,
+  staggerContainer,
+  staggerFast,
+  staggerItem,
+  viewportOnce,
+} from '@/components/ui/reveal'
 
 export function ServiceHero({
   eyebrow,
@@ -23,9 +33,12 @@ export function ServiceHero({
 }) {
   return (
     <section className="relative overflow-hidden px-5 pb-16 pt-28 sm:px-8 sm:pt-32 md:pb-24">
-      <div
+      <motion.div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.1, ease: motionEase }}
         style={{
           background:
             'radial-gradient(ellipse 60% 40% at 12% 8%, rgba(58,174,240,0.14), transparent 60%), radial-gradient(ellipse 50% 35% at 90% 18%, rgba(244,63,94,0.1), transparent 55%)',
@@ -68,15 +81,19 @@ export function ServiceHero({
           {(primaryCta || secondaryCta) && (
             <motion.div variants={staggerItem} className="mt-8 flex flex-wrap items-center gap-3">
               {primaryCta ? (
-                <CtaButton href={primaryCta.href} variant="primary">
-                  {primaryCta.label}
-                  <ArrowRight className="h-4 w-4" />
-                </CtaButton>
+                <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} transition={springSnappy}>
+                  <CtaButton href={primaryCta.href} variant="primary" className="group/btn">
+                    {primaryCta.label}
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
+                  </CtaButton>
+                </motion.div>
               ) : null}
               {secondaryCta ? (
-                <CtaButton href={secondaryCta.href} variant="outline">
-                  {secondaryCta.label}
-                </CtaButton>
+                <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} transition={springSnappy}>
+                  <CtaButton href={secondaryCta.href} variant="outline">
+                    {secondaryCta.label}
+                  </CtaButton>
+                </motion.div>
               ) : null}
             </motion.div>
           )}
@@ -115,24 +132,32 @@ export function CapabilityGrid({
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-80px' }}
+        viewport={viewportOnce}
         className="mt-12 grid gap-4 sm:grid-cols-2"
       >
-        {items.map((item) => {
+        {items.map((item, index) => {
           const Icon = item.icon
+          const isOddLast = items.length % 2 === 1 && index === items.length - 1
           return (
             <motion.article
               key={item.title}
               variants={staggerItem}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_20px_50px_-30px_rgba(58,174,240,0.45)]"
+              whileHover={{ y: -6 }}
+              transition={springSoft}
+              className={cn(
+                'group relative overflow-hidden rounded-2xl border border-border bg-card p-6 hover:border-primary/35 hover:shadow-[0_20px_50px_-30px_rgba(58,174,240,0.45)]',
+                isOddLast && 'sm:col-span-2 sm:mx-auto sm:w-full sm:max-w-[calc(50%-0.5rem)]',
+              )}
             >
               <div
                 aria-hidden
                 className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/20 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
               />
-              <span className="grid h-11 w-11 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+              <motion.span
+                className="grid h-11 w-11 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3"
+              >
                 <Icon className="h-5 w-5" />
-              </span>
+              </motion.span>
               <h3 className="mt-5 font-heading text-lg font-semibold tracking-tight text-foreground">
                 {item.title}
               </h3>
@@ -159,23 +184,34 @@ export function ServiceHeroVisual({
   footerRight?: string
 }) {
   const LeadIcon = nodes[0]?.icon
+  const reduce = useReducedMotion()
+
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96, y: 24 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.2 }}
+      variants={fadeScale}
+      initial="hidden"
+      animate="show"
+      transition={{ delay: 0.15 }}
       className="relative"
     >
-      <div
+      <motion.div
         aria-hidden
         className="pointer-events-none absolute -top-10 -right-8 h-40 w-40 rounded-full bg-primary/20 blur-3xl"
+        animate={reduce ? undefined : { scale: [1, 1.12, 1], opacity: [0.45, 0.75, 0.45] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
       />
-      <div
+      <motion.div
         aria-hidden
         className="pointer-events-none absolute -bottom-8 -left-6 h-36 w-36 rounded-full bg-accent/15 blur-3xl"
+        animate={reduce ? undefined : { scale: [1, 1.15, 1], opacity: [0.35, 0.65, 0.35] }}
+        transition={{ duration: 8.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
       />
 
-      <div className="relative overflow-hidden rounded-2xl border border-border bg-card/70 p-1.5 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.5)] backdrop-blur">
+      <motion.div
+        whileHover={{ y: -4 }}
+        transition={springSoft}
+        className="relative overflow-hidden rounded-2xl border border-border bg-card/70 p-1.5 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.5)] backdrop-blur"
+      >
         <div className="flex items-center gap-2 rounded-t-xl bg-background/60 px-4 py-3">
           <span className="h-2.5 w-2.5 rounded-full bg-[#e11d48]/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#0096e6]/40" />
@@ -186,26 +222,43 @@ export function ServiceHeroVisual({
         <div className="border-y border-border bg-background/40 px-4 py-4">
           <div className="flex items-start gap-3">
             {LeadIcon ? (
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+              <motion.span
+                className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary"
+                animate={reduce ? undefined : { rotate: [0, -4, 4, 0] }}
+                transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+              >
                 <LeadIcon className="h-5 w-5" />
-              </span>
+              </motion.span>
             ) : null}
             <div className="min-w-0 flex-1">
               <p className="font-heading text-sm font-semibold text-foreground">{title}</p>
               <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{subtitle}</p>
+              <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-border">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: '72%' }}
+                  transition={{ duration: 1.15, ease: motionEase, delay: 0.45 }}
+                  className="h-full rounded-full bg-linear-to-r from-primary to-accent"
+                />
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-1.5 p-1.5">
-          {nodes.slice(0, 4).map((node, i) => {
+        <motion.div
+          variants={staggerFast}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-2 gap-1.5 p-1.5"
+        >
+          {nodes.slice(0, 4).map((node) => {
             const Icon = node.icon
             return (
               <motion.div
                 key={node.label}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 + i * 0.08 }}
+                variants={staggerItem}
+                whileHover={{ y: -2, borderColor: 'color-mix(in srgb, var(--primary) 45%, transparent)' }}
+                transition={springSnappy}
                 className="flex items-center gap-2.5 rounded-lg border border-border bg-background/50 p-3"
               >
                 <span
@@ -221,7 +274,7 @@ export function ServiceHeroVisual({
               </motion.div>
             )
           })}
-        </div>
+        </motion.div>
 
         <div className="flex items-center justify-between rounded-b-xl border-t border-border bg-background/40 px-4 py-3">
           <span className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -233,7 +286,7 @@ export function ServiceHeroVisual({
           </span>
           <span className="font-mono text-xs text-muted-foreground">{footerRight}</span>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   )
 }

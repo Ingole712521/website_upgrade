@@ -1,4 +1,3 @@
-import { motion } from 'motion/react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
 import {
   AiProductHero,
@@ -6,16 +5,11 @@ import {
   AiProductBuildNotes,
   AiProductCta,
 } from '@/components/sections/ai-product-engineering'
-import { motionEase } from '@/components/ui/reveal'
+import { PageEnter } from '@/components/ui/reveal'
 
 export function AiProductEngineeringPage() {
   return (
-    <motion.main
-      className="relative isolate"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.45, ease: motionEase }}
-    >
+    <PageEnter>
       <AmbientBackground />
       <div className="relative z-10">
         <AiProductHero />
@@ -23,6 +17,6 @@ export function AiProductEngineeringPage() {
         <AiProductBuildNotes />
         <AiProductCta />
       </div>
-    </motion.main>
+    </PageEnter>
   )
 }

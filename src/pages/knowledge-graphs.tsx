@@ -5,8 +5,7 @@ import { ExpandableNotes } from '@/components/ui/expandable-notes'
 import { ServiceCta } from '@/components/ui/service-cta'
 import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
 import { Eyebrow, Section } from '@/components/ui/section'
-import { fadeUp, motionEase, staggerContainer, staggerItem } from '@/components/ui/reveal'
-import { Reveal } from '@/components/ui/reveal'
+import { fadeUp, PageEnter, Reveal, springSoft, staggerContainer, staggerItem, viewportOnce } from '@/components/ui/reveal'
 
 const notes = [
   {
@@ -37,12 +36,7 @@ const notes = [
 
 export function KnowledgeGraphsPage() {
   return (
-    <motion.main
-      className="relative isolate"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.45, ease: motionEase }}
-    >
+    <PageEnter>
       <AmbientBackground />
       <div className="relative z-10">
         <ServiceHero
@@ -92,7 +86,7 @@ export function KnowledgeGraphsPage() {
               variants={staggerContainer}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true, margin: '-80px' }}
+              viewport={viewportOnce}
               className="grid gap-4 sm:grid-cols-2"
             >
               {[
@@ -106,7 +100,9 @@ export function KnowledgeGraphsPage() {
                   <motion.div
                     key={item.title}
                     variants={staggerItem}
-                    className="rounded-2xl border border-border bg-card p-5"
+                    whileHover={{ y: -4 }}
+                    transition={springSoft}
+                    className="rounded-2xl border border-border bg-card p-5 hover:border-primary/35"
                   >
                     <span className="grid h-10 w-10 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
                       <Icon className="h-5 w-5" />
@@ -134,7 +130,9 @@ export function KnowledgeGraphsPage() {
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={viewportOnce}
+            whileHover={{ y: -3 }}
+            transition={springSoft}
             className="overflow-hidden rounded-3xl border border-border bg-card"
           >
             <div className="border-b border-border px-6 py-6 sm:px-8">
@@ -169,6 +167,6 @@ export function KnowledgeGraphsPage() {
           cta="Start a conversation"
         />
       </div>
-    </motion.main>
+    </PageEnter>
   )
 }

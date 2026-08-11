@@ -2,7 +2,14 @@ import { useEffect, useId, useState, type ReactNode } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Plus, X } from 'lucide-react'
 import { Section, SectionHeading } from '@/components/ui/section'
-import { motionEase, staggerContainer, staggerItem } from '@/components/ui/reveal'
+import {
+  motionEase,
+  springLayout,
+  springSnappy,
+  staggerContainer,
+  staggerItem,
+  viewportOnce,
+} from '@/components/ui/reveal'
 
 export type ExpandableNote = {
   id: string
@@ -46,18 +53,13 @@ export function ExpandableNotes({
 
   return (
     <Section id={id} className={className}>
-      <SectionHeading
-        align="center"
-        eyebrow={eyebrow}
-        title={title}
-        description={description}
-      />
+      <SectionHeading align="center" eyebrow={eyebrow} title={title} description={description} />
 
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, margin: '-80px' }}
+        viewport={viewportOnce}
         className="mt-12 grid gap-4 sm:grid-cols-2"
       >
         {notes.map((note) => {
@@ -71,12 +73,16 @@ export function ExpandableNotes({
               onClick={() => setSelectedId(note.id)}
               aria-expanded={isActive}
               style={{ opacity: isActive ? 0 : 1, pointerEvents: isActive ? 'none' : 'auto' }}
-              className="group relative flex min-h-38 flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 text-left transition-colors hover:border-primary/40 sm:min-h-42 sm:p-7"
-              transition={{ type: 'spring', stiffness: 380, damping: 34 }}
+              whileHover={{ y: -5, borderColor: 'color-mix(in srgb, var(--primary) 40%, transparent)' }}
+              whileTap={{ scale: 0.985 }}
+              transition={springLayout}
+              className="group relative flex min-h-38 flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 text-left sm:min-h-42 sm:p-7"
             >
-              <div
+              <motion.div
                 aria-hidden
-                className="pointer-events-none absolute -top-16 -right-12 h-36 w-36 rounded-full bg-primary/15 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
+                className="pointer-events-none absolute -top-16 -right-12 h-36 w-36 rounded-full bg-primary/15 blur-2xl"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
               />
               <div className="relative flex items-start justify-between gap-3">
                 <motion.span
@@ -85,9 +91,13 @@ export function ExpandableNotes({
                 >
                   {note.tag}
                 </motion.span>
-                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border bg-background/70 text-muted-foreground transition-colors group-hover:border-primary/40 group-hover:text-primary">
+                <motion.span
+                  className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border bg-background/70 text-muted-foreground group-hover:border-primary/40 group-hover:text-primary"
+                  whileHover={{ rotate: 90 }}
+                  transition={springSnappy}
+                >
                   <Plus className="h-4 w-4" />
-                </span>
+                </motion.span>
               </div>
               <motion.h3
                 layoutId={isActive ? undefined : `${layoutNamespace}-title-${note.id}`}
@@ -112,7 +122,7 @@ export function ExpandableNotes({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.22 }}
               className="fixed inset-0 z-50 bg-background/70 backdrop-blur-md"
               onClick={() => setSelectedId(null)}
             />
@@ -123,7 +133,7 @@ export function ExpandableNotes({
                 aria-modal="true"
                 aria-labelledby={`${layoutNamespace}-dialog-title`}
                 className="pointer-events-auto relative w-full max-w-lg overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-[0_40px_100px_-40px_rgba(0,0,0,0.65)] sm:p-8"
-                transition={{ type: 'spring', stiffness: 380, damping: 34 }}
+                transition={springLayout}
               >
                 <div
                   aria-hidden
@@ -141,14 +151,17 @@ export function ExpandableNotes({
                   >
                     {selected.tag}
                   </motion.span>
-                  <button
+                  <motion.button
                     type="button"
                     onClick={() => setSelectedId(null)}
-                    className="grid h-9 w-9 place-items-center rounded-full border border-border bg-background/80 text-muted-foreground transition-colors hover:border-foreground/25 hover:text-foreground"
+                    whileHover={{ scale: 1.06, rotate: 90 }}
+                    whileTap={{ scale: 0.94 }}
+                    transition={springSnappy}
+                    className="grid h-9 w-9 place-items-center rounded-full border border-border bg-background/80 text-muted-foreground hover:border-foreground/25 hover:text-foreground"
                     aria-label="Close note"
                   >
                     <X className="h-4 w-4" />
-                  </button>
+                  </motion.button>
                 </div>
 
                 <motion.h3
@@ -160,10 +173,10 @@ export function ExpandableNotes({
                 </motion.h3>
 
                 <motion.p
-                  initial={{ opacity: 0, y: 12 }}
+                  initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.35, ease: motionEase, delay: 0.08 }}
+                  transition={{ duration: 0.38, ease: motionEase, delay: 0.1 }}
                   className="relative mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base"
                 >
                   {selected.a}
