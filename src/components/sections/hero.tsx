@@ -38,7 +38,7 @@ export function Hero() {
             className="mt-5 font-heading text-xl font-semibold text-foreground/90 sm:text-2xl"
           >
             AI-Powered Software.{' '}
-            <span className="bg-gradient-to-r from-primary to-[#e11d48] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-primary to-[#e11d48] bg-clip-text text-transparent">
               Human-Led Execution.
             </span>
           </motion.p>

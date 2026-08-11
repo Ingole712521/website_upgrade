@@ -175,14 +175,13 @@ export function TechStack() {
       <div className="relative space-y-6 sm:space-y-8">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent sm:w-28"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r from-background to-transparent sm:w-28"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent sm:w-28"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l from-background to-transparent sm:w-28"
         />
 
-        {/* Row 1: left → right visually (content moves left) */}
         <div className="overflow-hidden">
           <div ref={trackLeftRef} className="flex w-max will-change-transform">
             <MarqueeHalf items={techStackRowOne} className="pr-10 sm:pr-14" />
@@ -190,7 +189,6 @@ export function TechStack() {
           </div>
         </div>
 
-        {/* Row 2: right → left visually (content moves right) */}
         <div className="overflow-hidden">
           <div ref={trackRightRef} className="flex w-max will-change-transform">
             <MarqueeHalf items={techStackRowTwo} className="pr-10 sm:pr-14" />

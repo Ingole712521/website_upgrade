@@ -187,12 +187,12 @@ export function Process() {
         {/* Desktop: line draws left → right through the steps */}
         <div
           aria-hidden
-          className="pointer-events-none absolute top-6 right-[calc((100%-3rem)/12)] left-[1.5rem] hidden h-px lg:block"
+          className="pointer-events-none absolute top-6 right-[calc((100%-3rem)/12)] left-6 hidden h-px lg:block"
         >
           <div className="absolute inset-0 bg-border/70" />
           <div
             ref={fillRef}
-            className="absolute inset-y-0 left-0 w-full origin-left bg-gradient-to-r from-primary via-primary to-accent will-change-transform"
+            className="absolute inset-y-0 left-0 w-full origin-left bg-linear-to-r from-primary via-primary to-accent will-change-transform"
             style={{ transform: 'scaleX(0)' }}
           />
           <div
@@ -211,7 +211,7 @@ export function Process() {
           <div className="absolute inset-0 bg-border/70" />
           <div
             ref={mobileFillRef}
-            className="absolute inset-x-0 top-0 h-full origin-top bg-gradient-to-b from-primary to-accent will-change-transform"
+            className="absolute inset-x-0 top-0 h-full origin-top bg-linear-to-b from-primary to-accent will-change-transform"
             style={{ transform: 'scaleY(0)' }}
           />
         </div>
