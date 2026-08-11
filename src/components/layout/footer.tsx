@@ -15,11 +15,11 @@ const columns = [
     ],
   },
   {
-    title: 'Company',
+    title: 'Engagement',
     links: [
-      { label: 'Industries', to: '/#industries' },
-      { label: 'Case Studies', to: '/#work' },
-      { label: 'Careers', to: '/#careers' },
+      { label: 'Micro GCC', to: '/engagement/micro-gcc' },
+      { label: 'Talent Pods', to: '/engagement/talent-pods' },
+      { label: 'Case Studies', to: '/case-studies' },
     ],
   },
   {

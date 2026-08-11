@@ -54,17 +54,17 @@ export const navGroups: NavGroup[] = [
       {
         label: 'Micro GCC as a Service',
         description: 'Your innovation hub in weeks',
-        to: '/#micro-gcc',
+        to: '/engagement/micro-gcc',
       },
       {
         label: 'On-Demand Talent Pods',
         description: 'AI-enhanced engineering pods',
-        to: '/#careers',
+        to: '/engagement/talent-pods',
       },
       {
         label: 'Case Studies',
         description: "Outcomes we've delivered",
-        to: '/#work',
+        to: '/case-studies',
       },
     ],
   },

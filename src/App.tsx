@@ -5,11 +5,14 @@ import { ScrollToTop } from '@/components/layout/scroll-to-top'
 import {
   AiProductEngineeringPage,
   AiSoftwarePlmPage,
+  CaseStudiesPage,
   ContactPage,
   HomePage,
   KnowledgeGraphsPage,
   LegacyMaintenancePage,
+  MicroGccPage,
   NotFoundPage,
+  TalentPodsPage,
   TechnologiesPage,
   UiUxModernizationPage,
 } from '@/pages'
@@ -33,6 +36,9 @@ function App() {
               <Route path="services/knowledge-graphs" element={<KnowledgeGraphsPage />} />
               <Route path="services/ui-ux-modernization" element={<UiUxModernizationPage />} />
               <Route path="technologies" element={<TechnologiesPage />} />
+              <Route path="engagement/micro-gcc" element={<MicroGccPage />} />
+              <Route path="engagement/talent-pods" element={<TalentPodsPage />} />
+              <Route path="case-studies" element={<CaseStudiesPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
             <Route path="/home" element={<Navigate to="/" replace />} />
