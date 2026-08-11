@@ -118,7 +118,7 @@ export function AboutPage() {
         <ServiceHero
           eyebrow="The zCon Story"
           title="Crafting Quality"
-          titleAccent="“Technovative” Solutions"
+          titleAccent="Technovative Solutions"
           description="zCon Solutions is an AI-first engineering partner for enterprises that need reliable delivery, practical innovation, and teams that own outcomes end to end."
           primaryCta={{ label: 'Meet leadership', href: '/leadership' }}
           secondaryCta={{ label: 'Our principles', href: '#pyramid' }}

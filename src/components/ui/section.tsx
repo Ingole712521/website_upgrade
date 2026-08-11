@@ -1,13 +1,43 @@
-import { forwardRef, type ComponentProps, type ReactNode } from 'react'
+import {
+  Children,
+  forwardRef,
+  isValidElement,
+  useState,
+  type ComponentProps,
+  type ReactNode,
+} from 'react'
 import { cn } from '@/lib/utils'
 import { Reveal } from '@/components/ui/reveal'
+import { RollingText } from '@/components/ui/rolling-text'
+
+function extractLabel(children: ReactNode): { label: string; extras: ReactNode[] } {
+  const extras: ReactNode[] = []
+  const parts: string[] = []
+
+  Children.forEach(children, (child) => {
+    if (typeof child === 'string' || typeof child === 'number') {
+      parts.push(String(child))
+      return
+    }
+    if (isValidElement(child)) {
+      extras.push(child)
+    }
+  })
+
+  return { label: parts.join('').replace(/\s+/g, ' ').trim(), extras }
+}
 
 export function CtaButton({
   children,
   variant = 'primary',
   className,
+  rolling,
   ...props
-}: ComponentProps<'a'> & { variant?: 'primary' | 'outline' | 'ghost' }) {
+}: ComponentProps<'a'> & {
+  variant?: 'primary' | 'outline' | 'ghost'
+  /** Staggered rolling label. Defaults on for outline/ghost, off for primary. */
+  rolling?: boolean
+}) {
   const styles = {
     primary:
       'bg-primary text-primary-foreground shadow-[0_1px_0_rgba(255,255,255,0.12)_inset,0_8px_24px_-8px_rgba(58,174,240,0.45)] hover:bg-primary/90',
@@ -15,6 +45,11 @@ export function CtaButton({
       'border border-border bg-card/60 text-foreground backdrop-blur hover:border-foreground/25 hover:bg-card',
     ghost: 'text-foreground/80 hover:text-foreground',
   }
+
+  const enableRolling = rolling ?? (variant === 'outline' || variant === 'ghost')
+  const [hovered, setHovered] = useState(false)
+  const { label, extras } = extractLabel(children)
+
   return (
     <a
       className={cn(
@@ -23,8 +58,32 @@ export function CtaButton({
         className,
       )}
       {...props}
+      aria-label={enableRolling && label ? label : props['aria-label']}
+      onMouseEnter={(e) => {
+        if (enableRolling) setHovered(true)
+        props.onMouseEnter?.(e)
+      }}
+      onMouseLeave={(e) => {
+        if (enableRolling) setHovered(false)
+        props.onMouseLeave?.(e)
+      }}
+      onFocus={(e) => {
+        if (enableRolling) setHovered(true)
+        props.onFocus?.(e)
+      }}
+      onBlur={(e) => {
+        if (enableRolling) setHovered(false)
+        props.onBlur?.(e)
+      }}
     >
-      {children}
+      {enableRolling && label ? (
+        <>
+          <RollingText text={label} active={hovered} />
+          {extras}
+        </>
+      ) : (
+        children
+      )}
     </a>
   )
 }

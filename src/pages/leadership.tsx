@@ -5,6 +5,7 @@ import { AmbientBackground } from '@/components/layout/ambient-background'
 import { ServiceCta } from '@/components/ui/service-cta'
 import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
 import { Section } from '@/components/ui/section'
+import { RollingTextButton } from '@/components/ui/rolling-text'
 import {
   PageEnter,
   motionEase,
@@ -132,21 +133,20 @@ function LeaderRow({ leader, index }: { leader: Leader; index: number }) {
             ) : null}
           </AnimatePresence>
 
-          <button
-            type="button"
+          <RollingTextButton
+            label={open ? 'Show less' : 'Read more'}
             onClick={() => setOpen((v) => !v)}
             className="mt-4 text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
             aria-expanded={open}
           >
-            {open ? 'Show less' : 'Read more'}
             <motion.span
-              className="ml-1 inline-block"
+              className="inline-block"
               animate={{ rotate: open ? 90 : 0 }}
               transition={springSoft}
             >
               →
             </motion.span>
-          </button>
+          </RollingTextButton>
         </div>
 
         <div className="flex items-center gap-3 md:flex-col md:items-end">

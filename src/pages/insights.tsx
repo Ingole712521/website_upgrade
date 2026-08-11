@@ -1,11 +1,11 @@
 import { useState, type FormEvent } from 'react'
-import { Link } from 'react-router-dom'
 import { motion } from 'motion/react'
 import { ArrowRight, BookOpen, Check, FileText } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
 import { ServiceCta } from '@/components/ui/service-cta'
 import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
 import { Section } from '@/components/ui/section'
+import { RollingTextLink } from '@/components/ui/rolling-text'
 import {
   PageEnter,
   motionEase,
@@ -202,13 +202,13 @@ export function InsightsPage() {
               <span>
                 {featured.date} · {featured.readTime} · {featured.author}
               </span>
-              <Link
+              <RollingTextLink
                 to="/contact"
-                className="inline-flex items-center gap-1.5 font-medium text-foreground transition-colors group-hover:text-primary"
+                label="Read insight"
+                className="font-medium text-foreground transition-colors group-hover:text-primary"
               >
-                Read insight
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-              </Link>
+              </RollingTextLink>
             </div>
           </motion.article>
 
@@ -220,7 +220,7 @@ export function InsightsPage() {
             viewport={viewportOnce}
             className="mt-4"
           >
-            {rest.map((insight, i) => (
+            {rest.map((insight) => (
               <motion.article
                 key={insight.title}
                 variants={staggerItem}
@@ -242,13 +242,13 @@ export function InsightsPage() {
                     {insight.date} · {insight.readTime} · {insight.author}
                   </p>
                 </div>
-                <Link
+                <RollingTextLink
                   to="/contact"
-                  className="inline-flex items-center gap-1 self-start text-sm font-medium text-muted-foreground transition-colors group-hover:text-primary md:justify-self-end"
+                  label="Read insight"
+                  className="self-start text-sm font-medium text-muted-foreground transition-colors group-hover:text-primary md:justify-self-end"
                 >
-                  {String(i + 2).padStart(2, '0')}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-                </Link>
+                </RollingTextLink>
               </motion.article>
             ))}
           </motion.div>
