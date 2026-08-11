@@ -36,7 +36,7 @@ export function Logo({
         width={172}
         height={172}
         decoding="async"
-        className={cn(markSizeMap[size], 'shrink-0 object-contain', className)}
+        className={cn(markSizeMap[size], 'shrink-0 object-contain bg-white', className)}
       />
     )
   }
@@ -48,7 +48,7 @@ export function Logo({
       width={164}
       height={91}
       decoding="async"
-      className={cn(wordmarkSizeMap[size], 'w-auto shrink-0 object-contain', className)}
+      className={cn(wordmarkSizeMap[size], 'w-auto bg-white shrink-0 object-contain', className)}
     />
   )
 }
