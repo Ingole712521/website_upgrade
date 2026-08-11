@@ -7,7 +7,7 @@ const columns = [
   {
     title: 'Services',
     links: [
-      { label: 'AI Product Engineering', to: '/#services' },
+      { label: 'AI Product Engineering', to: '/capabilities/ai-product-engineering' },
       { label: 'Legacy Modernization', to: '/#services' },
       { label: 'Knowledge Graph Engineering', to: '/#services' },
       { label: 'Micro GCC as a Service', to: '/#micro-gcc' },

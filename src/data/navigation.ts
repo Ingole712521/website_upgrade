@@ -18,7 +18,7 @@ export const navGroups: NavGroup[] = [
       {
         label: 'AI Product Engineering',
         description: 'Intelligent SaaS, built fast',
-        to: '/#services',
+        to: '/capabilities/ai-product-engineering',
       },
       {
         label: 'AI Software PLM',
