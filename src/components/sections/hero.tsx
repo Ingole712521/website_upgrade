@@ -63,7 +63,7 @@ export function Hero() {
               Explore Capabilities
               <ArrowRight className="h-4 w-4" />
             </CtaButton>
-            <CtaButton href="#contact" variant="outline">
+            <CtaButton href="/contact" variant="outline">
               Book Consultation
             </CtaButton>
           </motion.div>

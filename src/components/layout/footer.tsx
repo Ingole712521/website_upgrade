@@ -25,7 +25,7 @@ const columns = [
       { label: 'Technology', to: '/#technology' },
       { label: 'Delivery Process', to: '/#process' },
       { label: 'Why zCon', to: '/#why' },
-      { label: 'Contact', to: '/#contact' },
+      { label: 'Contact', to: '/contact' },
     ],
   },
 ]

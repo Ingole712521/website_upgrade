@@ -11,7 +11,7 @@ import {
   WhyZcon,
   CaseStudies,
   Careers,
-  Contact,
+  ContactCta,
 } from '@/components/sections'
 
 export function HomePage() {
@@ -30,7 +30,7 @@ export function HomePage() {
         <WhyZcon />
         <CaseStudies />
         <Careers />
-        <Contact />
+        <ContactCta />
       </div>
     </main>
   )

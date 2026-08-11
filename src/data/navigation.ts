@@ -111,12 +111,12 @@ export const navGroups: NavGroup[] = [
       {
         label: 'Insights',
         description: 'Ideas & engineering notes',
-        to: '/#contact',
+        to: '/contact',
       },
       {
         label: 'Blogs',
         description: 'Latest from zCon',
-        to: '/#contact',
+        to: '/contact',
       },
     ],
   },

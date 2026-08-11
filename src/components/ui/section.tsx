@@ -1,4 +1,4 @@
-import type { ComponentProps, ReactNode } from 'react'
+import { forwardRef, type ComponentProps, type ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 import { Reveal } from '@/components/ui/reveal'
 
@@ -88,18 +88,21 @@ export function SectionHeading({
   )
 }
 
-export function Section({
-  id,
-  children,
-  className,
-}: {
-  id?: string
-  children: ReactNode
-  className?: string
-}) {
+export const Section = forwardRef<
+  HTMLElement,
+  {
+    id?: string
+    children: ReactNode
+    className?: string
+  }
+>(function Section({ id, children, className }, ref) {
   return (
-    <section id={id} className={cn('scroll-mt-24 px-5 py-20 sm:px-8 md:py-28', className)}>
+    <section
+      ref={ref}
+      id={id}
+      className={cn('scroll-mt-24 px-5 py-20 sm:px-8 md:py-28', className)}
+    >
       <div className="mx-auto w-full max-w-6xl">{children}</div>
     </section>
   )
-}
+})

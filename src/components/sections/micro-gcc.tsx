@@ -40,7 +40,7 @@ export function MicroGcc() {
             </Reveal>
             <Reveal delay={0.16}>
               <div className="mt-8 flex flex-wrap gap-3">
-                <CtaButton href="#contact" variant="primary">
+                <CtaButton href="/contact" variant="primary">
                   Build your hub
                   <ArrowRight className="h-4 w-4" />
                 </CtaButton>

@@ -2,8 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { SmoothScrollProvider, ThemeProvider } from '@/components/providers'
 import { RootLayout } from '@/components/layout/root-layout'
 import { ScrollToTop } from '@/components/layout/scroll-to-top'
-import { HomePage } from '@/pages/home'
-import { NotFoundPage } from '@/pages/not-found'
+import { ContactPage, HomePage, NotFoundPage } from '@/pages'
 
 function App() {
   return (
@@ -14,6 +13,7 @@ function App() {
           <Routes>
             <Route element={<RootLayout />}>
               <Route index element={<HomePage />} />
+              <Route path="contact" element={<ContactPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
             <Route path="/home" element={<Navigate to="/" replace />} />
