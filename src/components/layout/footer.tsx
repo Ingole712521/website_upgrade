@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'motion/react'
 import { Logo } from '@/components/layout/logo'
+import { staggerContainer, staggerItem } from '@/components/ui/reveal'
 
 const columns = [
   {
@@ -32,10 +34,16 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-card/40 px-5 py-14 sm:px-8">
+    <motion.footer
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: '-60px' }}
+      variants={staggerContainer}
+      className="border-t border-border bg-card/40 px-5 py-14 sm:px-8"
+    >
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div>
+          <motion.div variants={staggerItem}>
             <Link to="/" aria-label="zCon Solutions home">
               <Logo variant="wordmark" size="lg" />
             </Link>
@@ -46,10 +54,10 @@ export function Footer() {
             <p className="mt-5 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground">
               Pune, India · Delaware, USA
             </p>
-          </div>
+          </motion.div>
 
           {columns.map((column) => (
-            <div key={column.title}>
+            <motion.div key={column.title} variants={staggerItem}>
               <h3 className="font-heading text-sm font-semibold text-foreground">{column.title}</h3>
               <ul className="mt-4 flex flex-col gap-3">
                 {column.links.map((link) => (
@@ -63,11 +71,14 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
+        <motion.div
+          variants={staggerItem}
+          className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row"
+        >
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} zCon Solutions. All rights reserved.
           </p>
@@ -78,8 +89,8 @@ export function Footer() {
               Back to top ↑
             </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </footer>
+    </motion.footer>
   )
 }

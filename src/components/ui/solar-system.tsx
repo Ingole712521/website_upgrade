@@ -222,13 +222,13 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
     const [hoveredId, setHoveredId] = useState<string | null>(null)
 
     const dustItems = [
-      { delay: '-4s', radius: '165px', color: '#f43f5e' },
-      { delay: '-11s', radius: '260px', color: '#3aaef0' },
-      { delay: '-19s', radius: '340px', color: '#facc15' },
-      { delay: '-28s', radius: '395px', color: '#f43f5e' },
-      { delay: '-7s', radius: '200px', color: '#a78bfa' },
-      { delay: '-15s', radius: '365px', color: '#3aaef0' },
-      { delay: '-23s', radius: '430px', color: '#fb7185' },
+      { delay: '-4s', radius: '165px', color: '#0096e6' },
+      { delay: '-11s', radius: '260px', color: '#38bdf8' },
+      { delay: '-19s', radius: '340px', color: '#e11d48' },
+      { delay: '-28s', radius: '395px', color: '#0096e6' },
+      { delay: '-7s', radius: '200px', color: '#a855f7' },
+      { delay: '-15s', radius: '365px', color: '#eab308' },
+      { delay: '-23s', radius: '430px', color: '#38bdf8' },
     ]
 
     const playState = isPaused ? 'paused' : 'running'

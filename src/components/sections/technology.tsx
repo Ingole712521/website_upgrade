@@ -1,5 +1,7 @@
+import { motion } from 'motion/react'
 import { Section, SectionHeading } from '@/components/ui/section'
 import { SolarSystem } from '@/components/ui/solar-system'
+import { fadeUp } from '@/components/ui/reveal'
 
 export function Technology() {
   return (
@@ -10,7 +12,13 @@ export function Technology() {
         description="We build on proven, enterprise-grade technologies — pairing battle-tested infrastructure with the latest in applied AI."
       />
 
-      <div className="relative mt-10 flex justify-center overflow-hidden rounded-3xl border border-border bg-card/40 py-6 sm:mt-12 sm:py-10">
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '-80px' }}
+        className="relative mt-10 flex justify-center overflow-hidden rounded-3xl border border-border bg-card/40 py-6 sm:mt-12 sm:py-10"
+      >
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 opacity-60"
@@ -24,7 +32,7 @@ export function Technology() {
           centerLogoAlt="zCon Solutions"
           className="relative z-10"
         />
-      </div>
+      </motion.div>
     </Section>
   )
 }

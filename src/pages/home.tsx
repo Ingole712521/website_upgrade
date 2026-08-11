@@ -1,3 +1,4 @@
+import { motion } from 'motion/react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
 import {
   Hero,
@@ -13,10 +14,16 @@ import {
   Careers,
   ContactCta,
 } from '@/components/sections'
+import { motionEase } from '@/components/ui/reveal'
 
 export function HomePage() {
   return (
-    <main className="relative isolate">
+    <motion.main
+      className="relative isolate"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.45, ease: motionEase }}
+    >
       <AmbientBackground />
       <div className="relative z-10">
         <Hero />
@@ -32,6 +39,6 @@ export function HomePage() {
         <Careers />
         <ContactCta />
       </div>
-    </main>
+    </motion.main>
   )
 }
