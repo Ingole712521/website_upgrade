@@ -37,7 +37,7 @@ export function Navbar() {
         )}
       >
         <Link to="/" aria-label="zCon Solutions home" className="pl-0.5 sm:pl-1">
-          <Logo variant="wordmark" size="md" />
+          <Logo variant="wordmark" size="lg" />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">

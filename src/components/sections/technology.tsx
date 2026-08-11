@@ -20,7 +20,7 @@ export function Technology() {
           }}
         />
         <SolarSystem
-          centerLogo="/Logo/zcon.png"
+          centerLogo="/Logo/zcon-mark.png"
           centerLogoAlt="zCon Solutions"
           className="relative z-10"
         />
