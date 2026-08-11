@@ -16,7 +16,6 @@ const columns = [
     links: [
       { label: 'Industries', to: '/#industries' },
       { label: 'Case Studies', to: '/#work' },
-      { label: 'Leadership', to: '/#leadership' },
       { label: 'Careers', to: '/#careers' },
     ],
   },

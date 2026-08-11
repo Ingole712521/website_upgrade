@@ -9,7 +9,6 @@ import {
   MicroGcc,
   WhyZcon,
   CaseStudies,
-  Leadership,
   Careers,
   Contact,
 } from '@/components/sections'
@@ -27,10 +26,8 @@ export function HomePage() {
       <MicroGcc />
       <WhyZcon />
       <CaseStudies />
-      <Leadership />
       <Careers />
       <Contact />
     </main>
   )
 }
-  
