@@ -1,17 +1,11 @@
-import {
-  BarChart3,
-  DollarSign,
-  FileSpreadsheet,
-  Pill,
-  Receipt,
-} from 'lucide-react'
+import { BarChart3, DollarSign, FileSpreadsheet, Pill, Receipt } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
-import { IndustryDelivery, IndustryHighlights } from '@/components/ui/industry-page'
+import { CapabilityList, DeliverySplit, MetricStrip } from '@/components/ui/industry-page'
 import { ServiceCta } from '@/components/ui/service-cta'
-import { CapabilityGrid, ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
+import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
 import { PageEnter } from '@/components/ui/reveal'
 
-const highlights = [
+const metrics = [
   { label: 'GtN', detail: 'pricing and net sales intelligence' },
   { label: 'NCPDP', detail: 'pharmacy claim workflows' },
   { label: 'SaaS', detail: 'scenario modeling and operations' },
@@ -42,7 +36,7 @@ const patterns = [
   },
   {
     title: 'Pharmacies & insurance interface',
-    desc: 'Responsive healthcare application for eligibility, Rx billing, prescription pricing, claim status, and reversals.',
+    desc: 'Responsive applications for eligibility, Rx billing, prescription pricing, claim status, and reversals.',
   },
   {
     title: 'Enterprise integration with analytics',
@@ -63,12 +57,11 @@ export function PharmaPage() {
       <div className="relative z-10">
         <ServiceHero
           eyebrow="Industry Focus"
-          title={
-            <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-              Pharma & Life Sciences
-            </span>
-          }
+          title="Pharma &"
+          titleAccent="Life Sciences"
           description="Data-rich platforms for life-sciences manufacturers, pharmacy networks, and healthcare teams managing pricing, claims, market access, and commercial operations."
+          primaryCta={{ label: 'Talk commercial ops', href: '/contact' }}
+          secondaryCta={{ label: 'See capabilities', href: '#capabilities' }}
           visual={
             <ServiceHeroVisual
               title="Commercial ops platform"
@@ -85,22 +78,19 @@ export function PharmaPage() {
           }
         />
 
-        <IndustryHighlights items={highlights} className="-mt-4 md:-mt-8" />
+        <MetricStrip items={metrics} className="-mt-2 md:-mt-6" />
 
-        <CapabilityGrid
-          id="capabilities"
-          eyebrow="Core Capabilities"
+        <CapabilityList
           title={<>Pricing, claims, and commercial clarity</>}
           description="Platforms that connect life-sciences pricing, pharmacy workflows, and decision-ready analytics."
           items={capabilities}
         />
 
-        <IndustryDelivery patterns={patterns} outcomes={outcomes} />
+        <DeliverySplit patterns={patterns} outcomes={outcomes} />
 
         <ServiceCta
           title="Let's build what's next."
           description="Tell us about your roadmap. We'll show you how AI-first engineering compresses the timeline."
-          cta="Start a conversation"
         />
       </div>
     </PageEnter>

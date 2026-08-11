@@ -11,10 +11,7 @@ import {
   Truck,
 } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
-import {
-  IndustryFeatureStack,
-  ManufacturingConnected,
-} from '@/components/ui/industry-page'
+import { CapabilityList, FactoryFlow } from '@/components/ui/industry-page'
 import { ServiceCta } from '@/components/ui/service-cta'
 import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
 import { PageEnter } from '@/components/ui/reveal'
@@ -23,17 +20,17 @@ const features = [
   {
     icon: Cpu,
     title: 'Digital Twins',
-    desc: 'Creating real-time virtual replicas of manufacturing environments. We integrate IoT telemetry and AI models to predict hardware failures, optimize throughput, and simulate production changes before physical implementation.',
+    desc: 'Real-time virtual replicas of manufacturing environments. IoT telemetry and AI models predict failures, optimize throughput, and simulate production changes before physical implementation.',
   },
   {
     icon: FileCheck2,
     title: 'Industrial Compliance (PPAP & IATF)',
-    desc: 'Developing specialized workflow and collaboration software mapped directly to strict automotive and industrial standards, including the Production Part Approval Process (PPAP) and IATF 16949. Ensure audit-readiness automatically.',
+    desc: 'Workflow and collaboration software mapped to automotive and industrial standards including PPAP and IATF 16949 — audit-ready by design.',
   },
   {
     icon: Truck,
     title: 'Supply Chain Automation',
-    desc: 'End-to-end visibility and AI-driven assembly line scheduling. We build platforms that orchestrate complex logistics networks, adjusting dynamically to supplier delays and demand fluctuations.',
+    desc: 'End-to-end visibility and AI-driven assembly line scheduling. Platforms that orchestrate logistics and adjust dynamically to supplier delays and demand shifts.',
   },
 ]
 
@@ -85,12 +82,11 @@ export function ManufacturingPage() {
       <div className="relative z-10">
         <ServiceHero
           eyebrow="Industry Focus"
-          title={
-            <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-              Intelligent Manufacturing & Supply Chain
-            </span>
-          }
+          title="Intelligent Manufacturing"
+          titleAccent="& Supply Chain"
           description="Bridging the gap between the factory floor and intelligent cloud architectures to create responsive, compliant, and highly efficient industrial systems."
+          primaryCta={{ label: 'Connect the floor', href: '/contact' }}
+          secondaryCta={{ label: 'See the flow', href: '#connected' }}
           visual={
             <ServiceHeroVisual
               title="Factory-to-cloud stack"
@@ -107,9 +103,13 @@ export function ManufacturingPage() {
           }
         />
 
-        <IndustryFeatureStack items={features} />
+        <CapabilityList
+          title={<>From twin to truck — industrial systems that decide faster</>}
+          description="Digital twins, compliance workflows, and supply chain automation built for regulated manufacturing."
+          items={features}
+        />
 
-        <ManufacturingConnected
+        <FactoryFlow
           stats={stats}
           stages={stages}
           signals={signals}
@@ -119,7 +119,6 @@ export function ManufacturingPage() {
         <ServiceCta
           title="Let's build what's next."
           description="Tell us about your roadmap. We'll show you how AI-first engineering compresses the timeline."
-          cta="Start a conversation"
         />
       </div>
     </PageEnter>

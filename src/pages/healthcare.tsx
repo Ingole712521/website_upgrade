@@ -1,17 +1,11 @@
-import {
-  ClipboardList,
-  Database,
-  Link2,
-  ShieldCheck,
-  Stethoscope,
-} from 'lucide-react'
+import { ClipboardList, Database, Link2, ShieldCheck, Stethoscope } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
-import { IndustryDelivery, IndustryHighlights } from '@/components/ui/industry-page'
+import { CapabilityList, DeliverySplit, MetricStrip } from '@/components/ui/industry-page'
 import { ServiceCta } from '@/components/ui/service-cta'
-import { CapabilityGrid, ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
+import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
 import { PageEnter } from '@/components/ui/reveal'
 
-const highlights = [
+const metrics = [
   { label: 'EHR', detail: 'product and workflow engineering' },
   { label: 'HL7', detail: 'labs, pharmacy, and clinical integration' },
   { label: 'HIPAA', detail: 'security and compliance patterns' },
@@ -46,7 +40,7 @@ const patterns = [
   },
   {
     title: 'Health therapy services',
-    desc: 'Real-time web and tablet workflows for agencies, therapy staffing companies, therapists, referrals, and visit tracking.',
+    desc: 'Real-time web and tablet workflows for agencies, therapy staffing, therapists, referrals, and visit tracking.',
   },
 ]
 
@@ -63,12 +57,11 @@ export function HealthcarePage() {
       <div className="relative z-10">
         <ServiceHero
           eyebrow="Industry Focus"
-          title={
-            <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-              Healthcare Technology
-            </span>
-          }
+          title="Healthcare"
+          titleAccent="Technology"
           description="Secure healthcare platforms for clinical teams, practice operators, and healthtech companies that need compliant workflows, integrations, and patient-ready digital experiences."
+          primaryCta={{ label: 'Discuss compliance', href: '/contact' }}
+          secondaryCta={{ label: 'See capabilities', href: '#capabilities' }}
           visual={
             <ServiceHeroVisual
               title="Clinical platform stack"
@@ -85,22 +78,19 @@ export function HealthcarePage() {
           }
         />
 
-        <IndustryHighlights items={highlights} className="-mt-4 md:-mt-8" />
+        <MetricStrip items={metrics} className="-mt-2 md:-mt-6" />
 
-        <CapabilityGrid
-          id="capabilities"
-          eyebrow="Core Capabilities"
+        <CapabilityList
           title={<>Compliant products for care delivery</>}
           description="Engineering patterns for EHR modernization, clinical interoperability, and secure patient experiences."
           items={capabilities}
         />
 
-        <IndustryDelivery patterns={patterns} outcomes={outcomes} />
+        <DeliverySplit patterns={patterns} outcomes={outcomes} />
 
         <ServiceCta
           title="Let's build what's next."
           description="Tell us about your roadmap. We'll show you how AI-first engineering compresses the timeline."
-          cta="Start a conversation"
         />
       </div>
     </PageEnter>

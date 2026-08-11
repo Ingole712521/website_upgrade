@@ -7,12 +7,16 @@ import {
   Workflow,
 } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
-import { IndustryDelivery, IndustryHighlights } from '@/components/ui/industry-page'
+import {
+  CapabilityList,
+  DeliverySplit,
+  MetricStrip,
+} from '@/components/ui/industry-page'
 import { ServiceCta } from '@/components/ui/service-cta'
-import { CapabilityGrid, ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
+import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
 import { PageEnter } from '@/components/ui/reveal'
 
-const highlights = [
+const metrics = [
   { label: '24/7', detail: 'buyer and tenant engagement' },
   { label: 'Agents', detail: 'autonomous real estate workflows' },
   { label: 'CRM', detail: 'agency and franchise intelligence' },
@@ -22,7 +26,7 @@ const capabilities = [
   {
     icon: Workflow,
     title: 'Agentic Real Estate Workflows',
-    desc: 'Turn enquiries, listing updates, buyer qualification, follow-ups, and handoffs into supervised AI-agent workflows that work across CRM, websites, and messaging channels.',
+    desc: 'Turn enquiries, listing updates, buyer qualification, follow-ups, and handoffs into supervised AI-agent workflows across CRM, websites, and messaging channels.',
   },
   {
     icon: MessageSquare,
@@ -48,7 +52,7 @@ const patterns = [
   },
   {
     title: 'Agentic system design',
-    desc: 'AI agents can qualify enquiries, enrich listings, route leads, draft responses, trigger CRM updates, and escalate to human agents when needed.',
+    desc: 'AI agents qualify enquiries, enrich listings, route leads, draft responses, trigger CRM updates, and escalate when needed.',
   },
   {
     title: 'Vision AI-enhanced real estate',
@@ -62,7 +66,7 @@ const patterns = [
 
 const outcomes = [
   'Always-on enquiry handling for buyers, tenants, vendors, and property managers.',
-  'Agentic workflows that move from chat response to lead qualification, CRM action, follow-up, and human handoff.',
+  'Agentic workflows from chat response to lead qualification, CRM action, follow-up, and human handoff.',
   'Higher-quality listing content generated from property data, images, and floorplans.',
   'Operational visibility across branches, campaigns, conversations, and lead pipelines.',
 ]
@@ -74,12 +78,11 @@ export function RealEstatePage() {
       <div className="relative z-10">
         <ServiceHero
           eyebrow="Industry Focus"
-          title={
-            <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-              Real Estate & PropTech
-            </span>
-          }
+          title="Real Estate &"
+          titleAccent="PropTech"
           description="Agentic real estate platforms for teams that need faster buyer engagement, richer listings, automated lead workflows, and better operational visibility across sales, leasing, and property management."
+          primaryCta={{ label: 'Talk PropTech', href: '/contact' }}
+          secondaryCta={{ label: 'See capabilities', href: '#capabilities' }}
           visual={
             <ServiceHeroVisual
               title="PropTech operating layer"
@@ -96,22 +99,19 @@ export function RealEstatePage() {
           }
         />
 
-        <IndustryHighlights items={highlights} className="-mt-4 md:-mt-8" />
+        <MetricStrip items={metrics} className="-mt-2 md:-mt-6" />
 
-        <CapabilityGrid
-          id="capabilities"
-          eyebrow="Core Capabilities"
+        <CapabilityList
           title={<>Built for agencies, franchises, and PropTech teams</>}
           description="From conversational journeys to operating intelligence — workflows that keep buyers engaged and teams aligned."
           items={capabilities}
         />
 
-        <IndustryDelivery patterns={patterns} outcomes={outcomes} />
+        <DeliverySplit patterns={patterns} outcomes={outcomes} />
 
         <ServiceCta
           title="Let's build what's next."
           description="Tell us about your roadmap. We'll show you how AI-first engineering compresses the timeline."
-          cta="Start a conversation"
         />
       </div>
     </PageEnter>

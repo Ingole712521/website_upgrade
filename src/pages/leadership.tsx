@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { Linkedin, Network, Users } from 'lucide-react'
+import { Network, Users } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
 import { ServiceCta } from '@/components/ui/service-cta'
 import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
@@ -14,13 +14,21 @@ import {
   viewportOnce,
 } from '@/components/ui/reveal'
 
+function LinkedInIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  )
+}
+
 type Leader = {
   name: string
   role: string
   summary: string
   bio: string
-  linkedin?: string
   initials: string
+  linkedin?: string
 }
 
 const leaders: Leader[] = [
@@ -30,7 +38,7 @@ const leaders: Leader[] = [
     initials: 'VB',
     summary:
       'Two decades as an IT consultant spanning civil organizations, Big Four accounting, and enterprise software delivery.',
-    bio: 'In two decades as an IT consultant, Vikas Bapat has worked with U.S. business interests ranging from civil organizations, like the Chicago Police Department, to major corporations including Big Four accounting firm Ernst & Young, and software giant Oracle. He spent many years stateside, working in the competitive, big-city environments of Denver, Minneapolis, and Chicago. A multi-dimensional IT professional, Vikas is experienced in various industry segments including B2B marketplace, manufacturing (ERP) and utilities, especially using Oracle/SQL Server databases. In every role, from project lead to technical architect, he continually expanded and refined his skill in delivering information technology solutions.',
+    bio: 'In two decades as an IT consultant, Vikas Bapat has worked with U.S. business interests ranging from civil organizations, like the Chicago Police Department, to major corporations including Big Four accounting firm Ernst & Young, and software giant Oracle. He spent many years stateside in Denver, Minneapolis, and Chicago. Experienced across B2B marketplace, manufacturing (ERP) and utilities — especially Oracle/SQL Server — from project lead to technical architect.',
     linkedin: 'https://www.linkedin.com/',
   },
   {
@@ -38,8 +46,8 @@ const leaders: Leader[] = [
     role: 'Director & CTO',
     initials: 'RK',
     summary:
-      'Career in IT consulting and product development with top-tier clients, and co-founder of zCon Solutions.',
-    bio: 'Over the course of his career in IT consulting and product development, Rahul Khinvasara has worked with top-tier clients around the world including Merck, Eli Lilly, Media One, General Motors, Kraft Foods, Nationwide Acceptance Corporation, and Bristol Myers Squibb. His achievements include a management stint with Ernst and Young, LLP. After living and working six years in the U.S., Rahul returned to India and joined forces with another experienced IT professional to launch zCon Solutions, leveraging collective knowledge and business experience.',
+      'IT consulting and product development with top-tier clients — and co-founder of zCon Solutions.',
+    bio: 'Rahul has worked with clients including Merck, Eli Lilly, Media One, General Motors, Kraft Foods, Nationwide Acceptance Corporation, and Bristol Myers Squibb, including a management stint with Ernst and Young, LLP. After six years in the U.S., he returned to India and co-founded zCon Solutions.',
     linkedin: 'https://www.linkedin.com/',
   },
   {
@@ -47,8 +55,8 @@ const leaders: Leader[] = [
     role: 'Director of Cloud Engineering',
     initials: 'PO',
     summary:
-      '20+ years at zCon leading client delivery, enterprise application programs, and AI-first engineering teams.',
-    bio: 'Pritesh Ostwal is Director of Cloud Engineering at zCon Solutions, with 20+ years at zCon leading client delivery, enterprise application programs, and cross-functional engineering teams. His work spans cloud engineering, OpenAI and Azure AI solution delivery, RAG and RAFT patterns, and production-grade application modernization. Pritesh works closely with customers to translate business priorities into clear delivery plans and keep execution visible from discovery through release. In zCon\'s AI-first delivery model, he helps teams apply reusable AI delivery skills, code review practices, QA planning, and release governance.',
+      '20+ years at zCon leading client delivery, enterprise programs, and AI-first engineering teams.',
+    bio: "Pritesh leads cloud engineering with work spanning OpenAI and Azure AI delivery, RAG and RAFT patterns, and production-grade modernization. He helps teams apply reusable AI delivery skills, code review, QA planning, and release governance so products move faster without losing control.",
     linkedin: 'https://www.linkedin.com/',
   },
   {
@@ -56,8 +64,8 @@ const leaders: Leader[] = [
     role: 'Delivery Manager',
     initials: 'AA',
     summary:
-      'Account management expertise across large zCon accounts, with 26+ years in IT including 18+ years at IBM.',
-    bio: 'Ajay Ajnadkar brings account management expertise and manages delivery for large zCon accounts, with responsibility across client management, operations, and special projects. Ajay has 26+ years of experience in the IT industry, including 18+ years with IBM, and has worked with clients including American Express, General Motors, Hertz Car Rentals, NiSource, and Duke Energy. His background also includes a three-year risk management stint with IBM Canada. He holds a Master\'s degree in Computer Science from Pune University and earned PMI certification in 2003.',
+      '26+ years in IT including 18+ at IBM — account management across large zCon engagements.',
+    bio: "Ajay manages delivery for large zCon accounts across client management, operations, and special projects. Clients have included American Express, General Motors, Hertz, NiSource, and Duke Energy. Master's in Computer Science from Pune University; PMI certified since 2003.",
     linkedin: 'https://www.linkedin.com/',
   },
   {
@@ -65,8 +73,8 @@ const leaders: Leader[] = [
     role: 'Delivery Manager',
     initials: 'AG',
     summary:
-      'Owns project and product delivery from presales and solutioning through stakeholder alignment and completion.',
-    bio: 'Being a delivery manager at zCon, Ameya plays a significant part in project and product delivery management — from presales and solutioning, initiation of the project, relationships with major stakeholders, uninterrupted headway of the project, and accomplishment. His knowledge of Information Technology and Systems management helps him drive projects techno-functionally. A graduate in Business Administration, Ameya is also certified in Systems Management and is a post-graduate in Information Technology. Prior to joining zCon, Ameya has 19 years of experience delivering large-scale programs in IT Software.',
+      'Owns delivery from presales and solutioning through stakeholder alignment and project completion.',
+    bio: 'Ameya drives project and product delivery end to end — techno-functional leadership backed by Systems Management certification and a post-graduate degree in Information Technology, plus 19 years delivering large-scale IT programs before zCon.',
     linkedin: 'https://www.linkedin.com/',
   },
   {
@@ -74,67 +82,90 @@ const leaders: Leader[] = [
     role: 'HR Head',
     initials: 'CM',
     summary:
-      'Blends analytical engineering judgment with empathy — ideal for building thriving, fast-growing teams.',
-    bio: 'Chitra possesses an exceptional blend of left-brain and right-brain skillsets typically located at opposite ends of the professional spectrum. She combines the keen intelligence and analytical ability of a computer science engineer with the empathy, compassion, and understanding of a counselor or social worker. It is this unique combination of character traits that make Chitra the ideal human resources manager for a thriving, fast-growing IT company. Earning a bachelor degree in computer science from Maharashtra Institute of Technology, Chitra laid a solid foundation for a career in the IT industry.',
+      'Blends analytical engineering judgment with empathy — building thriving, fast-growing teams.',
+    bio: 'Chitra combines the analytical ability of a computer science engineer with the empathy of a counselor. A graduate of Maharashtra Institute of Technology, she is the ideal people leader for a thriving, fast-growing IT company.',
     linkedin: 'https://www.linkedin.com/',
   },
 ]
 
-function LeaderCard({ leader }: { leader: Leader }) {
+function LeaderRow({ leader, index }: { leader: Leader; index: number }) {
   const [open, setOpen] = useState(false)
 
   return (
     <motion.article
       variants={staggerItem}
-      whileHover={{ y: -5 }}
-      transition={springSoft}
-      className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-6"
+      className="group border-b border-border py-8 first:border-t"
     >
-      <div className="flex items-start justify-between gap-3">
-        <div className="grid h-16 w-16 place-items-center rounded-2xl border border-primary/20 bg-primary/10 font-heading text-lg font-bold text-primary">
+      <div className="grid gap-6 md:grid-cols-[5.5rem_1fr_auto] md:items-start md:gap-8">
+        <motion.div
+          whileHover={{ scale: 1.05, rotate: -2 }}
+          transition={springSoft}
+          className="grid h-16 w-16 place-items-center rounded-2xl bg-linear-to-br from-primary/25 to-accent/20 font-heading text-lg font-bold text-foreground"
+        >
           {leader.initials}
+        </motion.div>
+
+        <div>
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3 className="font-heading text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+              {leader.name}
+            </h3>
+            <span className="text-sm font-medium text-primary">{leader.role}</span>
+          </div>
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
+            {leader.summary}
+          </p>
+
+          <AnimatePresence initial={false}>
+            {open ? (
+              <motion.p
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.35, ease: motionEase }}
+                className="overflow-hidden"
+              >
+                <span className="mt-4 block max-w-2xl text-sm leading-relaxed text-foreground/80">
+                  {leader.bio}
+                </span>
+              </motion.p>
+            ) : null}
+          </AnimatePresence>
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="mt-4 text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+            aria-expanded={open}
+          >
+            {open ? 'Show less' : 'Read more'}
+            <motion.span
+              className="ml-1 inline-block"
+              animate={{ rotate: open ? 90 : 0 }}
+              transition={springSoft}
+            >
+              →
+            </motion.span>
+          </button>
         </div>
-        {leader.linkedin ? (
-          <a
-            href={leader.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`${leader.name} LinkedIn profile`}
-            className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
-          >
-            <Linkedin className="h-4 w-4" />
-          </a>
-        ) : null}
+
+        <div className="flex items-center gap-3 md:flex-col md:items-end">
+          <span className="font-mono text-xs text-muted-foreground">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          {leader.linkedin ? (
+            <a
+              href={leader.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${leader.name} LinkedIn`}
+              className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+            >
+              <LinkedInIcon className="h-4 w-4" />
+            </a>
+          ) : null}
+        </div>
       </div>
-
-      <h3 className="mt-5 font-heading text-lg font-semibold tracking-tight text-foreground">
-        {leader.name}
-      </h3>
-      <p className="mt-1 text-sm font-medium text-primary">{leader.role}</p>
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{leader.summary}</p>
-
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="mt-4 self-start text-sm font-medium text-foreground transition-colors hover:text-primary"
-        aria-expanded={open}
-      >
-        {open ? 'Show less' : 'Read more'} →
-      </button>
-
-      <AnimatePresence initial={false}>
-        {open ? (
-          <motion.p
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.28, ease: motionEase }}
-            className="overflow-hidden text-sm leading-relaxed text-muted-foreground"
-          >
-            <span className="mt-3 block border-t border-border pt-3">{leader.bio}</span>
-          </motion.p>
-        ) : null}
-      </AnimatePresence>
     </motion.article>
   )
 }
@@ -146,12 +177,11 @@ export function LeadershipPage() {
       <div className="relative z-10">
         <ServiceHero
           eyebrow="Leadership"
-          title={
-            <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-              The Architects of Innovation
-            </span>
-          }
+          title="The Architects of"
+          titleAccent="Innovation"
           description="Our executive team brings decades of combined experience in enterprise software engineering, artificial intelligence, and global delivery management."
+          primaryCta={{ label: 'Work with us', href: '/contact' }}
+          secondaryCta={{ label: 'Join the team', href: '/careers' }}
           visual={
             <ServiceHeroVisual
               title="Executive network"
@@ -174,10 +204,9 @@ export function LeadershipPage() {
             initial="hidden"
             whileInView="show"
             viewport={viewportOnce}
-            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
           >
-            {leaders.map((leader) => (
-              <LeaderCard key={leader.name} leader={leader} />
+            {leaders.map((leader, index) => (
+              <LeaderRow key={leader.name} leader={leader} index={index} />
             ))}
           </motion.div>
         </Section>
@@ -185,7 +214,6 @@ export function LeadershipPage() {
         <ServiceCta
           title="Let's build what's next."
           description="Tell us about your roadmap. We'll show you how AI-first engineering compresses the timeline."
-          cta="Start a conversation"
         />
       </div>
     </PageEnter>
