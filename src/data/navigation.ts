@@ -23,27 +23,27 @@ export const navGroups: NavGroup[] = [
       {
         label: 'AI Software PLM',
         description: 'Lifecycle, accelerated',
-        to: '/#services',
+        to: '/services/ai-software-plm',
       },
       {
         label: 'Legacy Maintenance',
         description: 'Modernize safely',
-        to: '/#services',
+        to: '/services/legacy-maintenance',
       },
       {
         label: 'Knowledge Graphs',
         description: 'Deterministic data modeling',
-        to: '/#services',
+        to: '/services/knowledge-graphs',
       },
       {
         label: 'UI/UX Modernization',
         description: 'Consumer-grade enterprise UX',
-        to: '/#services',
+        to: '/services/ui-ux-modernization',
       },
       {
         label: 'Technology Stack',
         description: 'Our engineering toolkit',
-        to: '/#technology',
+        to: '/technologies',
       },
     ],
   },

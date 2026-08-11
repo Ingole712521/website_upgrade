@@ -8,9 +8,10 @@ const columns = [
     title: 'Services',
     links: [
       { label: 'AI Product Engineering', to: '/capabilities/ai-product-engineering' },
-      { label: 'Legacy Modernization', to: '/#services' },
-      { label: 'Knowledge Graph Engineering', to: '/#services' },
-      { label: 'Micro GCC as a Service', to: '/#micro-gcc' },
+      { label: 'AI Software PLM', to: '/services/ai-software-plm' },
+      { label: 'Legacy Maintenance', to: '/services/legacy-maintenance' },
+      { label: 'Knowledge Graphs', to: '/services/knowledge-graphs' },
+      { label: 'UI/UX Modernization', to: '/services/ui-ux-modernization' },
     ],
   },
   {
@@ -24,7 +25,7 @@ const columns = [
   {
     title: 'Resources',
     links: [
-      { label: 'Technology', to: '/#technology' },
+      { label: 'Technology', to: '/technologies' },
       { label: 'Delivery Process', to: '/#process' },
       { label: 'Why zCon', to: '/#why' },
       { label: 'Contact', to: '/contact' },
