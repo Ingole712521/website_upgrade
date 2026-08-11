@@ -1,5 +1,6 @@
 export { Hero } from './hero'
 export { Trust } from './trust'
+export { TechStack } from './tech-stack'
 export { Services } from './services'
 export { Industries } from './industries'
 export { Technology } from './technology'

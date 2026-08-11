@@ -1,6 +1,7 @@
 import {
   Hero,
   Trust,
+  TechStack,
   Services,
   Industries,
   Technology,
@@ -18,6 +19,7 @@ export function HomePage() {
     <main className="relative">
       <Hero />
       <Trust />
+      <TechStack />
       <Services />
       <Industries />
       <Technology />
@@ -31,3 +33,4 @@ export function HomePage() {
     </main>
   )
 }
+  
