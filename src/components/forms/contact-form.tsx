@@ -64,8 +64,8 @@ export function ContactForm({ className }: { className?: string }) {
   return (
     <form onSubmit={onSubmit} className={cn('flex flex-col gap-4', className)}>
       <div className="grid gap-4 sm:grid-cols-2">
-        <Field label="Full name" name="name" placeholder="Jane Doe" required />
-        <Field label="Work email" name="email" type="email" placeholder="jane@company.com" required />
+        <Field label="Full name" name="name" placeholder="Full name" required />
+        <Field label="Work email" name="email" type="email" placeholder="email@company.com" required />
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Company" name="company" placeholder="Acme Corp" />

@@ -91,7 +91,7 @@ function CareersForm() {
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-4">
       <div className="grid gap-4 sm:grid-cols-2">
-        <Field label="Full Name" name="name" placeholder="Jane Doe" required />
+        <Field label="Full Name" name="name" placeholder="Full name" required />
         <Field label="Email" name="email" type="email" placeholder="jane@example.com" required />
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
