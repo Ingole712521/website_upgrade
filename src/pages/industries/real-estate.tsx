@@ -11,9 +11,9 @@ import {
   CapabilityList,
   DeliverySplit,
   MetricStrip,
-} from '@/components/ui/industry-page'
-import { ServiceCta } from '@/components/ui/service-cta'
-import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
+} from '@/components/templates/industry-page'
+import { ServiceCta } from '@/components/templates/service-cta'
+import { ServiceHero, ServiceHeroVisual } from '@/components/templates/service-page'
 import { PageEnter } from '@/components/ui/reveal'
 
 const metrics = [

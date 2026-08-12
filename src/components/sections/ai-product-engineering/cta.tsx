@@ -1,4 +1,4 @@
-import { ServiceCta } from '@/components/ui/service-cta'
+import { ServiceCta } from '@/components/templates/service-cta'
 
 export function AiProductCta() {
   return (

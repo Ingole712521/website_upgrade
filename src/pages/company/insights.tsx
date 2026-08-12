@@ -2,8 +2,8 @@ import { useState, type FormEvent } from 'react'
 import { motion } from 'motion/react'
 import { ArrowRight, BookOpen, Check, FileText } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
-import { ServiceCta } from '@/components/ui/service-cta'
-import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
+import { ServiceCta } from '@/components/templates/service-cta'
+import { ServiceHero, ServiceHeroVisual } from '@/components/templates/service-page'
 import { Section } from '@/components/ui/section'
 import { RollingTextLink } from '@/components/ui/rolling-text'
 import {
@@ -181,7 +181,6 @@ export function InsightsPage() {
         />
 
         <Section id="articles">
-          {/* Featured lead */}
           <motion.article
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -212,7 +211,6 @@ export function InsightsPage() {
             </div>
           </motion.article>
 
-          {/* Remaining — magazine list */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"

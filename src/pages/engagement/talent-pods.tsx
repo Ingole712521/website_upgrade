@@ -10,8 +10,8 @@ import {
 } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
 import { ExpandableNotes } from '@/components/ui/expandable-notes'
-import { ServiceCta } from '@/components/ui/service-cta'
-import { CapabilityGrid, ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
+import { ServiceCta } from '@/components/templates/service-cta'
+import { CapabilityGrid, ServiceHero, ServiceHeroVisual } from '@/components/templates/service-page'
 import { Eyebrow, Section } from '@/components/ui/section'
 import {
   PageEnter,

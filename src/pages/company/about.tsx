@@ -11,8 +11,8 @@ import {
   Target,
 } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
-import { ServiceCta } from '@/components/ui/service-cta'
-import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
+import { ServiceCta } from '@/components/templates/service-cta'
+import { ServiceHero, ServiceHeroVisual } from '@/components/templates/service-page'
 import { Eyebrow, Section } from '@/components/ui/section'
 import {
   PageEnter,
@@ -138,7 +138,6 @@ export function AboutPage() {
           }
         />
 
-        {/* Big numbers — typographic, not cards */}
         <section className="px-5 sm:px-8">
           <motion.div
             variants={staggerContainer}
@@ -172,7 +171,6 @@ export function AboutPage() {
           </motion.div>
         </section>
 
-        {/* Mission — editorial split */}
         <Section id="mission">
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
             <div>
@@ -195,7 +193,6 @@ export function AboutPage() {
           </div>
         </Section>
 
-        {/* Success pyramid — numbered rail */}
         <Section id="pyramid" className="bg-muted/30 dark:bg-transparent">
           <Reveal>
             <Eyebrow>Delivery Principles</Eyebrow>
@@ -238,7 +235,6 @@ export function AboutPage() {
           </motion.ol>
         </Section>
 
-        {/* Values — chip rail with hover */}
         <Section id="values">
           <Reveal>
             <Eyebrow>Culture</Eyebrow>
@@ -275,7 +271,6 @@ export function AboutPage() {
           </Reveal>
         </Section>
 
-        {/* Partnership */}
         <Section id="partnership" className="bg-muted/30 dark:bg-transparent">
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
@@ -315,7 +310,6 @@ export function AboutPage() {
           </div>
         </Section>
 
-        {/* What we bring — 2-col with icon hover */}
         <Section id="bring">
           <Reveal>
             <Eyebrow>Differentiators</Eyebrow>

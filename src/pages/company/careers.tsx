@@ -2,8 +2,8 @@ import { useState, type FormEvent } from 'react'
 import { motion } from 'motion/react'
 import { Check, Laptop, Rocket, Send, Trophy, Upload } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
-import { ServiceCta } from '@/components/ui/service-cta'
-import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
+import { ServiceCta } from '@/components/templates/service-cta'
+import { ServiceHero, ServiceHeroVisual } from '@/components/templates/service-page'
 import { Eyebrow, Section } from '@/components/ui/section'
 import {
   PageEnter,

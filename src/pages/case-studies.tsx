@@ -12,8 +12,8 @@ import {
   Pill,
 } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
-import { ServiceCta } from '@/components/ui/service-cta'
-import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
+import { ServiceCta } from '@/components/templates/service-cta'
+import { ServiceHero, ServiceHeroVisual } from '@/components/templates/service-page'
 import { Eyebrow, Section, SectionHeading } from '@/components/ui/section'
 import {
   PageEnter,

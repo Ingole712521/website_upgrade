@@ -12,7 +12,6 @@ import {
   viewportOnce,
 } from '@/components/ui/reveal'
 
-/** Slim metric strip — no card walls */
 export function MetricStrip({
   items,
   className,
@@ -46,7 +45,6 @@ export function MetricStrip({
   )
 }
 
-/** Numbered capability list — editorial, not a card grid */
 export function CapabilityList({
   id = 'capabilities',
   eyebrow = 'Capabilities',
@@ -117,7 +115,6 @@ export function CapabilityList({
   )
 }
 
-/** Split: patterns (left rail) + outcomes (right) */
 export function DeliverySplit({
   id = 'delivery',
   eyebrow = 'Client Context',
@@ -213,7 +210,6 @@ export function DeliverySplit({
   )
 }
 
-/** Manufacturing: connected floor visual — lighter, motion-forward */
 export function FactoryFlow({
   stats,
   stages,
@@ -339,7 +335,6 @@ export function FactoryFlow({
   )
 }
 
-/** Keep old names as aliases so pages can migrate cleanly */
 export const IndustryHighlights = MetricStrip
 export const IndustryDelivery = DeliverySplit
 export const ManufacturingConnected = FactoryFlow

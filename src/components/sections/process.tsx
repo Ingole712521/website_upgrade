@@ -184,7 +184,6 @@ export function Process() {
       />
 
       <div ref={stageRef} className="relative mt-14">
-        {/* Desktop: line draws left → right through the steps */}
         <div
           aria-hidden
           className="pointer-events-none absolute top-6 right-[calc((100%-3rem)/12)] left-6 hidden h-px lg:block"
@@ -203,7 +202,6 @@ export function Process() {
           </div>
         </div>
 
-        {/* Mobile: vertical line */}
         <div
           aria-hidden
           className="pointer-events-none absolute top-2 bottom-2 left-[1.4rem] w-px overflow-hidden lg:hidden"

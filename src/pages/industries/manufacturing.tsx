@@ -11,9 +11,9 @@ import {
   Truck,
 } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
-import { CapabilityList, FactoryFlow } from '@/components/ui/industry-page'
-import { ServiceCta } from '@/components/ui/service-cta'
-import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
+import { CapabilityList, FactoryFlow } from '@/components/templates/industry-page'
+import { ServiceCta } from '@/components/templates/service-cta'
+import { ServiceHero, ServiceHeroVisual } from '@/components/templates/service-page'
 import { PageEnter } from '@/components/ui/reveal'
 
 const features = [

@@ -6,7 +6,7 @@ import {
   Layers,
   Zap,
 } from 'lucide-react'
-import { CapabilityGrid } from '@/components/ui/service-page'
+import { CapabilityGrid } from '@/components/templates/service-page'
 
 const capabilities = [
   {

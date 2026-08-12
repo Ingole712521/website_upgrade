@@ -2,8 +2,8 @@ import { motion } from 'motion/react'
 import { Building2, Globe2, Layers, ShieldCheck, Zap } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
 import { ExpandableNotes } from '@/components/ui/expandable-notes'
-import { ServiceCta } from '@/components/ui/service-cta'
-import { CapabilityGrid, ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
+import { ServiceCta } from '@/components/templates/service-cta'
+import { CapabilityGrid, ServiceHero, ServiceHeroVisual } from '@/components/templates/service-page'
 import { Section, SectionHeading } from '@/components/ui/section'
 import {
   PageEnter,

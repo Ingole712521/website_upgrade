@@ -21,7 +21,6 @@ export function HeroVisual() {
       className="relative"
     >
       <div className="relative overflow-hidden rounded-2xl border border-border bg-card/70 p-1.5 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.5)] backdrop-blur">
-        {/* window bar */}
         <div className="flex items-center gap-2 rounded-t-xl bg-background/60 px-4 py-3">
           <span className="h-2.5 w-2.5 rounded-full bg-[#e11d48]/70" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#0096e6]/40" />
@@ -29,7 +28,6 @@ export function HeroVisual() {
           <span className="ml-3 font-mono text-xs text-muted-foreground">zcon-platform / delivery.ts</span>
         </div>
 
-        {/* code strip */}
         <div className="border-y border-border bg-background/40 px-4 py-3 font-mono text-[11px] leading-relaxed sm:text-xs">
           <p className="text-muted-foreground">
             <span className="text-[#e11d48]">const</span>{' '}
@@ -46,7 +44,6 @@ export function HeroVisual() {
           <p className="text-muted-foreground">{'})'}</p>
         </div>
 
-        {/* node grid */}
         <div className="grid grid-cols-3 gap-1.5 p-1.5">
           {nodes.map((node, i) => {
             const Icon = node.icon
@@ -75,7 +72,6 @@ export function HeroVisual() {
           })}
         </div>
 
-        {/* status footer */}
         <div className="flex items-center justify-between rounded-b-xl border-t border-border bg-background/40 px-4 py-3">
           <span className="flex items-center gap-2 text-xs text-muted-foreground">
             <span className="relative flex h-2 w-2">
@@ -88,7 +84,6 @@ export function HeroVisual() {
         </div>
       </div>
 
-      {/* floating badge */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}

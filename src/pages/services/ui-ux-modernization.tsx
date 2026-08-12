@@ -12,12 +12,12 @@ import {
 } from 'lucide-react'
 import { AmbientBackground } from '@/components/layout/ambient-background'
 import { ExpandableNotes } from '@/components/ui/expandable-notes'
-import { ServiceCta } from '@/components/ui/service-cta'
+import { ServiceCta } from '@/components/templates/service-cta'
 import {
   CapabilityGrid,
   ServiceHero,
   ServiceHeroVisual,
-} from '@/components/ui/service-page'
+} from '@/components/templates/service-page'
 import { Section, SectionHeading } from '@/components/ui/section'
 import { fadeUp, motionEase, PageEnter, springSnappy, springSoft, staggerContainer, staggerItem, viewportOnce } from '@/components/ui/reveal'
 

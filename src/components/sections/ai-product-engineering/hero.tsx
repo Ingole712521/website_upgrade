@@ -1,5 +1,5 @@
 import { Code2, Layers, Sparkles, Workflow } from 'lucide-react'
-import { ServiceHero, ServiceHeroVisual } from '@/components/ui/service-page'
+import { ServiceHero, ServiceHeroVisual } from '@/components/templates/service-page'
 
 export function AiProductHero() {
   return (
