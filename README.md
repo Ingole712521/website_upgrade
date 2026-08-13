@@ -1,76 +1,24 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Instead of only submitting a résumé and waiting, I rebuilt your public website with an upgraded UI architecture, clearer structure, and fixes for a few UX and consistency problems I noticed on zconsolutions.com. My goal was to show how I think about product polish, component design, and shipping something end-to-end — not to claim your current site is wrong.
 
-Currently, two official plugins are available:
+Live demo: https://website-upgrade-pearl.vercel.app/
+GitHub: https://github.com/Ingole712521/website_upgrade
+Portfolio: https://www.nehalingole.in/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+You can see my other work on my portfolio — projects across UI engineering, product builds, and DevOps / cloud delivery.
 
-## React Compiler
+What I focused on in this rebuild:
+Cleaner UI architecture and reusable section/page patterns
+Stronger visual hierarchy and interaction polish
+Fixes for UX/consistency gaps I found while rebuilding
+Modern React + Vite stack aligned with how fast product teams ship
+Alongside frontend work, I’m also a DevOps engineer with 3 years of hands-on experience in:
+Docker and containerized delivery
+Kubernetes for orchestration
+AWS and private cloud environments
+Jenkins (and related CI/CD tooling) for build, test, and release pipelines
+That mix matters to me at zCon because your work sits at the intersection of AI product engineering and reliable delivery infrastructure — and I want to help on both the product UI and the systems that ship it.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+I’d love a short conversation about open roles (frontend, full-stack, DevOps, or platform/delivery engineering) and whether this kind of initiative fits how you hire. Happy to walk through the repo, design choices, or my DevOps experience.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-# website_upgrade
+Thanks for your time — and for the work you’re doing in AI-first enterprise engineering
