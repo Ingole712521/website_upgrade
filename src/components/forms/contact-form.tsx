@@ -18,13 +18,15 @@ function Field({
 }) {
   return (
     <label className="flex flex-col gap-1.5">
-      <span className="text-sm font-medium text-foreground">{label}</span>
+      <span className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
+        {label}
+      </span>
       <input
         type={type}
         name={name}
         required={required}
         placeholder={placeholder}
-        className="h-11 rounded-xl border border-border bg-background px-4 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
+        className="h-11 rounded-sm border border-foreground/20 bg-background px-4 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary/30"
       />
     </label>
   )
@@ -48,8 +50,8 @@ export function ContactForm({ className }: { className?: string }) {
           className,
         )}
       >
-        <span className="grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-primary">
-          <Check className="h-7 w-7" />
+        <span className="grid h-12 w-12 place-items-center border border-primary text-primary">
+          <Check className="h-6 w-6" />
         </span>
         <h3 className="font-heading text-xl font-semibold text-foreground">
           Thanks — message received
@@ -72,23 +74,25 @@ export function ContactForm({ className }: { className?: string }) {
         <Field label="Industry" name="industry" placeholder="Healthcare" />
       </div>
       <label className="flex flex-col gap-1.5">
-        <span className="text-sm font-medium text-foreground">How can we help?</span>
+        <span className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
+          How can we help?
+        </span>
         <textarea
           name="message"
           rows={4}
           required
           placeholder="Tell us about your project or challenge…"
-          className="resize-none rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
+          className="resize-none rounded-sm border border-foreground/20 bg-background px-4 py-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary/30"
         />
       </label>
       <button
         type="submit"
-        className="mt-4 inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-medium text-primary-foreground shadow-[0_8px_24px_-10px_rgba(244,63,94,0.5)] transition-colors hover:bg-primary/90"
+        className="mt-4 inline-flex h-11 items-center justify-center gap-2 rounded-sm bg-primary px-5 font-mono text-xs font-medium uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
       >
         Book Consultation
-        <ArrowRight className="h-4 w-4" />
+        <ArrowRight className="h-3.5 w-3.5" />
       </button>
-      <p className="text-center text-xs text-muted-foreground">
+      <p className="text-center font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted-foreground">
         ISO 9001 &amp; ISO 27001 certified · Your data stays confidential
       </p>
     </form>

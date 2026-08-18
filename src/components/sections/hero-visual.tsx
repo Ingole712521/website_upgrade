@@ -1,103 +1,79 @@
 import { motion } from 'motion/react'
-import { Boxes, Cpu, Database, GitBranch, ShieldCheck, Workflow } from 'lucide-react'
 
 const easeOut = [0.21, 0.47, 0.32, 0.98] as const
 
-const nodes = [
-  { icon: Cpu, label: 'AI Reasoning', tone: 'primary' },
-  { icon: Workflow, label: 'Agentic Pipeline', tone: 'primary' },
-  { icon: Database, label: 'Knowledge Graph', tone: 'accent' },
-  { icon: Boxes, label: 'Microservices', tone: 'primary' },
-  { icon: ShieldCheck, label: 'Release Governance', tone: 'accent' },
-  { icon: GitBranch, label: 'CI / CD', tone: 'primary' },
+const specs = [
+  { code: '01', label: 'AI Reasoning' },
+  { code: '02', label: 'Agentic Pipeline' },
+  { code: '03', label: 'Knowledge Graph' },
+  { code: '04', label: 'Microservices' },
+  { code: '05', label: 'Governance' },
+  { code: '06', label: 'CI / CD' },
 ]
 
 export function HeroVisual() {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96, y: 24 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: easeOut, delay: 0.2 }}
-      className="relative"
+      aria-hidden
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.1, ease: easeOut }}
+      className="pointer-events-none absolute inset-0 -z-0"
     >
-      <div className="relative overflow-hidden rounded-2xl border border-border bg-card/70 p-1.5 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.5)] backdrop-blur">
-        <div className="flex items-center gap-2 rounded-t-xl bg-background/60 px-4 py-3">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#e11d48]/70" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#0096e6]/40" />
-          <span className="h-2.5 w-2.5 rounded-full bg-muted-foreground/30" />
-          <span className="ml-3 font-mono text-xs text-muted-foreground">zcon-platform / delivery.ts</span>
-        </div>
+      {/* Dominant edge-to-edge plane */}
+      <div className="absolute inset-0 bg-foreground/[0.03] dark:bg-foreground/[0.04]" />
 
-        <div className="border-y border-border bg-background/40 px-4 py-3 font-mono text-[11px] leading-relaxed sm:text-xs">
-          <p className="text-muted-foreground">
-            <span className="text-[#e11d48]">const</span>{' '}
-            <span className="text-foreground">system</span> ={' '}
-            <span className="text-primary">zcon.engineer</span>({'{'}
-          </p>
-          <p className="pl-4 text-muted-foreground">
-            mode: <span className="text-primary">&apos;ai-first&apos;</span>, ownership:{' '}
-            <span className="text-primary">&apos;100%&apos;</span>,
-          </p>
-          <p className="pl-4 text-muted-foreground">
-            governance: <span className="text-primary">true</span>
-          </p>
-          <p className="text-muted-foreground">{'})'}</p>
-        </div>
+      <div
+        className="absolute inset-0 opacity-60"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, color-mix(in srgb, var(--foreground) 10%, transparent) 1px, transparent 1px),
+            linear-gradient(to bottom, color-mix(in srgb, var(--foreground) 10%, transparent) 1px, transparent 1px)
+          `,
+          backgroundSize: '64px 64px',
+        }}
+      />
 
-        <div className="grid grid-cols-3 gap-1.5 p-1.5">
-          {nodes.map((node, i) => {
-            const Icon = node.icon
-            return (
-              <motion.div
-                key={node.label}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: easeOut, delay: 0.4 + i * 0.08 }}
-                className="group flex flex-col gap-2 rounded-lg border border-border bg-background/50 p-3 transition-colors hover:border-primary/40"
-              >
-                <span
-                  className={`grid h-8 w-8 place-items-center rounded-md ${
-                    node.tone === 'accent'
-                      ? 'bg-[#e11d48]/10 text-[#e11d48]'
-                      : 'bg-primary/10 text-primary'
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                </span>
-                <span className="text-[11px] font-medium leading-tight text-foreground/80">
-                  {node.label}
-                </span>
-              </motion.div>
-            )
-          })}
-        </div>
-
-        <div className="flex items-center justify-between rounded-b-xl border-t border-border bg-background/40 px-4 py-3">
-          <span className="flex items-center gap-2 text-xs text-muted-foreground">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-            </span>
-            Production ready
-          </span>
-          <span className="font-mono text-xs text-muted-foreground">uptime 99.99%</span>
-        </div>
+      {/* Large archival type watermark */}
+      <div className="absolute inset-x-0 top-[18%] flex justify-center overflow-hidden select-none">
+        <motion.span
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: easeOut, delay: 0.15 }}
+          className="font-heading text-[clamp(6rem,28vw,22rem)] font-extrabold leading-none tracking-[-0.06em] text-foreground/[0.04] dark:text-foreground/[0.06]"
+        >
+          SYS
+        </motion.span>
       </div>
 
+      {/* Orange accent bar — architectural signal */}
       <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1 }}
-        className="absolute -bottom-5 -left-4 hidden items-center gap-3 rounded-xl border border-border bg-background/90 px-4 py-3 shadow-xl backdrop-blur sm:flex"
-      >
-        <span className="grid h-9 w-9 place-items-center rounded-lg bg-primary/10 text-primary">
-          <Cpu className="h-4 w-4" />
-        </span>
-        <div className="leading-tight">
-          <p className="text-sm font-semibold text-foreground">100+ Engineers</p>
-          <p className="text-xs text-muted-foreground">AI-native delivery pods</p>
-        </div>
-      </motion.div>
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1, ease: easeOut, delay: 0.3 }}
+        className="absolute right-0 top-0 h-full w-1 origin-top bg-primary sm:w-1.5"
+      />
+
+      {/* Spec index strip along the right (desktop) */}
+      <div className="absolute right-8 top-1/2 hidden -translate-y-1/2 flex-col gap-3 lg:flex">
+        {specs.map((spec, i) => (
+          <motion.div
+            key={spec.code}
+            initial={{ opacity: 0, x: 12 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.45, ease: easeOut, delay: 0.45 + i * 0.06 }}
+            className="flex items-baseline gap-3 text-right"
+          >
+            <span className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-muted-foreground">
+              {spec.label}
+            </span>
+            <span className="font-mono text-[0.6rem] text-primary">{spec.code}</span>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Bottom fade into page */}
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent" />
     </motion.div>
   )
 }

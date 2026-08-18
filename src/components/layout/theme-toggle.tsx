@@ -15,12 +15,12 @@ export function ThemeToggle() {
       type="button"
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       aria-label="Toggle color theme"
-      className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+      className="grid h-9 w-9 place-items-center border border-foreground/20 text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
     >
       {mounted ? (
-        isDark ? <Sun className="h-[18px] w-[18px]" /> : <Moon className="h-[18px] w-[18px]" />
+        isDark ? <Sun className="h-[16px] w-[16px]" /> : <Moon className="h-[16px] w-[16px]" />
       ) : (
-        <span className="h-[18px] w-[18px]" />
+        <span className="h-[16px] w-[16px]" />
       )}
     </button>
   )

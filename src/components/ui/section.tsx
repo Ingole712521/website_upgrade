@@ -40,10 +40,10 @@ export function CtaButton({
 }) {
   const styles = {
     primary:
-      'bg-primary text-primary-foreground shadow-[0_1px_0_rgba(255,255,255,0.12)_inset,0_8px_24px_-8px_rgba(58,174,240,0.45)] hover:bg-primary/90',
+      'bg-primary text-primary-foreground hover:bg-foreground hover:text-background',
     outline:
-      'border border-border bg-card/60 text-foreground backdrop-blur hover:border-foreground/25 hover:bg-card',
-    ghost: 'text-foreground/80 hover:text-foreground',
+      'border border-foreground/25 bg-transparent text-foreground hover:border-foreground hover:bg-foreground hover:text-background',
+    ghost: 'text-foreground/70 hover:text-foreground',
   }
 
   const enableRolling = rolling ?? (variant === 'outline' || variant === 'ghost')
@@ -53,7 +53,7 @@ export function CtaButton({
   return (
     <a
       className={cn(
-        'inline-flex h-11 items-center justify-center gap-2 rounded-xl px-5 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+        'inline-flex h-11 items-center justify-center gap-2 rounded-sm px-5 font-mono text-xs font-medium uppercase tracking-[0.12em] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
         styles[variant],
         className,
       )}
@@ -92,11 +92,11 @@ export function Eyebrow({ children, className }: { children: ReactNode; classNam
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 font-mono text-[0.7rem] font-medium uppercase tracking-[0.15em] text-muted-foreground',
+        'inline-flex items-center gap-3 font-mono text-[0.7rem] font-medium uppercase tracking-[0.2em] text-muted-foreground',
         className,
       )}
     >
-      <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+      <span className="h-px w-6 bg-primary" aria-hidden />
       {children}
     </span>
   )
@@ -124,10 +124,10 @@ export function SectionHeading({
       )}
     >
       <Reveal>
-        <Eyebrow>{eyebrow}</Eyebrow>
+        <Eyebrow className={align === 'center' ? 'justify-center' : undefined}>{eyebrow}</Eyebrow>
       </Reveal>
       <Reveal delay={0.05}>
-        <h2 className="font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-[2.75rem] md:leading-[1.08]">
+        <h2 className="font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-[2.75rem] md:leading-[1.05]">
           {title}
         </h2>
       </Reveal>

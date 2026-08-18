@@ -76,23 +76,17 @@ export function ExpandableNotes({
               whileHover={{ y: -5, borderColor: 'color-mix(in srgb, var(--primary) 40%, transparent)' }}
               whileTap={{ scale: 0.985 }}
               transition={springLayout}
-              className="group relative flex min-h-38 flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 text-left sm:min-h-42 sm:p-7"
+              className="group relative flex min-h-38 flex-col overflow-hidden border border-foreground/15 bg-card p-6 text-left sm:min-h-42 sm:p-7"
             >
-              <motion.div
-                aria-hidden
-                className="pointer-events-none absolute -top-16 -right-12 h-36 w-36 rounded-full bg-primary/15 blur-2xl"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-              />
               <div className="relative flex items-start justify-between gap-3">
                 <motion.span
                   layoutId={isActive ? undefined : `${layoutNamespace}-tag-${note.id}`}
-                  className="inline-flex rounded-full border border-border bg-background/70 px-2.5 py-1 font-mono text-[0.65rem] font-medium uppercase tracking-[0.14em] text-muted-foreground"
+                  className="inline-flex border border-foreground/15 bg-background px-2.5 py-1 font-mono text-[0.65rem] font-medium uppercase tracking-[0.14em] text-muted-foreground"
                 >
                   {note.tag}
                 </motion.span>
                 <motion.span
-                  className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-border bg-background/70 text-muted-foreground group-hover:border-primary/40 group-hover:text-primary"
+                  className="grid h-8 w-8 shrink-0 place-items-center border border-foreground/15 bg-background text-muted-foreground group-hover:border-primary group-hover:text-primary"
                   whileHover={{ rotate: 90 }}
                   transition={springSnappy}
                 >
@@ -132,22 +126,13 @@ export function ExpandableNotes({
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby={`${layoutNamespace}-dialog-title`}
-                className="pointer-events-auto relative w-full max-w-lg overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-[0_40px_100px_-40px_rgba(0,0,0,0.65)] sm:p-8"
+                className="pointer-events-auto relative w-full max-w-lg overflow-hidden border border-foreground/15 bg-card p-6 sm:p-8"
                 transition={springLayout}
               >
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -top-24 -left-16 h-56 w-56 rounded-full bg-primary/20 blur-3xl"
-                />
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -right-20 -bottom-24 h-56 w-56 rounded-full bg-accent/15 blur-3xl"
-                />
-
                 <div className="relative flex items-start justify-between gap-4">
                   <motion.span
                     layoutId={`${layoutNamespace}-tag-${selected.id}`}
-                    className="inline-flex rounded-full border border-primary/25 bg-primary/10 px-2.5 py-1 font-mono text-[0.65rem] font-medium uppercase tracking-[0.14em] text-primary"
+                    className="inline-flex border border-primary/25 bg-primary/10 px-2.5 py-1 font-mono text-[0.65rem] font-medium uppercase tracking-[0.14em] text-primary"
                   >
                     {selected.tag}
                   </motion.span>
@@ -157,7 +142,7 @@ export function ExpandableNotes({
                     whileHover={{ scale: 1.06, rotate: 90 }}
                     whileTap={{ scale: 0.94 }}
                     transition={springSnappy}
-                    className="grid h-9 w-9 place-items-center rounded-full border border-border bg-background/80 text-muted-foreground hover:border-foreground/25 hover:text-foreground"
+                    className="grid h-9 w-9 place-items-center border border-foreground/15 bg-background text-muted-foreground hover:border-foreground/40 hover:text-foreground"
                     aria-label="Close note"
                   >
                     <X className="h-4 w-4" />

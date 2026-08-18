@@ -144,7 +144,7 @@ export function AboutPage() {
             initial="hidden"
             whileInView="show"
             viewport={viewportOnce}
-            className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-y-10 border-y border-border py-12 lg:grid-cols-4"
+            className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-y-10 border-y border-foreground/15 py-12 lg:grid-cols-4"
           >
             {stats.map((stat, i) => (
               <motion.div
@@ -153,7 +153,7 @@ export function AboutPage() {
                 className={
                   i === 0
                     ? 'px-0 lg:pr-6'
-                    : 'px-0 lg:border-l lg:border-border lg:px-6 lg:last:pr-0'
+                    : 'px-0 lg:border-l lg:border-foreground/15 lg:px-6 lg:last:pr-0'
                 }
               >
                 <motion.p
@@ -213,7 +213,7 @@ export function AboutPage() {
             initial="hidden"
             whileInView="show"
             viewport={viewportOnce}
-            className="mt-12 divide-y divide-border border-y border-border"
+            className="mt-12 divide-y divide-foreground/15 border-y border-foreground/15"
           >
             {pyramid.map((item, i) => (
               <motion.li
@@ -257,7 +257,7 @@ export function AboutPage() {
                 variants={staggerItem}
                 whileHover={{ y: -3, scale: 1.03 }}
                 transition={springSoft}
-                className="rounded-full border border-border bg-card px-5 py-2.5 font-heading text-sm font-semibold text-foreground"
+                className="border border-foreground/15 bg-card px-5 py-2.5 font-heading text-sm font-semibold text-foreground"
               >
                 {value}
               </motion.span>
@@ -336,7 +336,7 @@ export function AboutPage() {
                   transition={springSoft}
                   className="group flex gap-4"
                 >
-                  <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+                  <span className="mt-0.5 grid h-10 w-10 shrink-0 place-items-center border border-foreground/15 bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                     <Icon className="h-5 w-5" />
                   </span>
                   <div>

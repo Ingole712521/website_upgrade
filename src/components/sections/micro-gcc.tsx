@@ -14,17 +14,13 @@ const features: { title: string; desc: string; icon: LucideIcon }[] = [
 export function MicroGcc() {
   return (
     <Section id="micro-gcc">
-      <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 sm:p-12">
-        <div aria-hidden className="pointer-events-none absolute inset-0 dot-bg opacity-40" />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(0,150,230,0.22),transparent_65%)] blur-2xl"
-        />
+      <div className="relative overflow-hidden border border-foreground/15 bg-foreground text-background">
+        <div aria-hidden className="pointer-events-none absolute inset-0 stripe-bg opacity-40" />
 
-        <div className="relative grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+        <div className="relative grid gap-10 p-8 sm:p-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <div>
             <Reveal>
-              <Eyebrow>Micro GCC as a Service</Eyebrow>
+              <Eyebrow className="text-background/55 [&_span]:bg-primary">Micro GCC as a Service</Eyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <h2 className="mt-5 font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl">
@@ -32,7 +28,7 @@ export function MicroGcc() {
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
+              <p className="mt-4 max-w-lg text-base leading-relaxed text-background/65 md:text-lg">
                 Stand up a fully-managed, AI-native engineering center — the speed and control of an
                 in-house team, without the overhead. Full IP ownership, enterprise governance, and
                 global delivery from day one.
@@ -42,9 +38,13 @@ export function MicroGcc() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <CtaButton href="/engagement/micro-gcc" variant="primary">
                   Build your hub
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </CtaButton>
-                <CtaButton href="/case-studies" variant="outline">
+                <CtaButton
+                  href="/case-studies"
+                  variant="outline"
+                  className="border-background/30 text-background hover:border-background hover:bg-background hover:text-foreground"
+                >
                   See it in action
                 </CtaButton>
               </div>
@@ -56,7 +56,7 @@ export function MicroGcc() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-60px' }}
-            className="grid gap-3 sm:grid-cols-2"
+            className="grid gap-px overflow-hidden border border-background/15 bg-background/15 sm:grid-cols-2"
           >
             {features.map((feature) => {
               const Icon = feature.icon
@@ -64,14 +64,12 @@ export function MicroGcc() {
                 <motion.div
                   key={feature.title}
                   variants={staggerItem}
-                  className="flex gap-3 rounded-xl border border-border bg-background/70 p-4 backdrop-blur"
+                  className="flex gap-3 bg-foreground p-4"
                 >
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
-                    <Icon className="h-4 w-4" />
-                  </span>
+                  <Icon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   <div>
-                    <p className="text-sm font-semibold text-foreground">{feature.title}</p>
-                    <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                    <p className="text-sm font-semibold text-background">{feature.title}</p>
+                    <p className="mt-0.5 text-xs leading-relaxed text-background/55">
                       {feature.desc}
                     </p>
                   </div>
@@ -80,10 +78,12 @@ export function MicroGcc() {
             })}
             <motion.div
               variants={staggerItem}
-              className="flex items-center gap-3 rounded-xl border border-dashed border-primary/30 bg-primary/5 p-4"
+              className="flex items-center gap-3 bg-primary p-4 text-primary-foreground sm:col-span-2"
             >
-              <Building className="h-5 w-5 text-primary" />
-              <p className="text-sm font-medium text-foreground">Pune · Delaware delivery</p>
+              <Building className="h-4 w-4" />
+              <p className="font-mono text-xs uppercase tracking-[0.14em]">
+                Pune · Delaware delivery
+              </p>
             </motion.div>
           </motion.div>
         </div>

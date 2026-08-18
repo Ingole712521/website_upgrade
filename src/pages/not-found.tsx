@@ -21,7 +21,7 @@ export function NotFoundPage() {
       </p>
       <Link
         to="/"
-        className="mt-8 inline-flex h-11 items-center justify-center rounded-xl bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+        className="mt-8 inline-flex h-11 items-center justify-center rounded-sm bg-primary px-5 font-mono text-xs font-medium uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
       >
         Back to home
       </Link>

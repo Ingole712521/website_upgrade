@@ -102,9 +102,9 @@ export function KnowledgeGraphsPage() {
                     variants={staggerItem}
                     whileHover={{ y: -4 }}
                     transition={springSoft}
-                    className="rounded-2xl border border-border bg-card p-5 hover:border-primary/35"
+                    className="border border-foreground/15 bg-card p-5 hover:border-primary/35"
                   >
-                    <span className="grid h-10 w-10 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+                    <span className="grid h-10 w-10 place-items-center border border-foreground/15 bg-primary/10 text-primary">
                       <Icon className="h-5 w-5" />
                     </span>
                     <h3 className="mt-4 font-heading text-base font-semibold text-foreground">{item.title}</h3>
@@ -133,17 +133,17 @@ export function KnowledgeGraphsPage() {
             viewport={viewportOnce}
             whileHover={{ y: -3 }}
             transition={springSoft}
-            className="overflow-hidden rounded-3xl border border-border bg-card"
+            className="overflow-hidden border border-foreground/15 bg-card"
           >
-            <div className="border-b border-border px-6 py-6 sm:px-8">
+            <div className="border-b border-foreground/15 px-6 py-6 sm:px-8">
               <Eyebrow>Use Case</Eyebrow>
               <h2 className="mt-4 font-heading text-2xl font-bold tracking-tight sm:text-3xl">
                 SAP Implementation AI Advisor
               </h2>
             </div>
             <div className="grid gap-0 lg:grid-cols-2">
-              <div className="border-b border-border p-6 sm:p-8 lg:border-r lg:border-b-0">
-                <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent">The challenge</p>
+              <div className="border-b border-foreground/15 p-6 sm:p-8 lg:border-r lg:border-b-0">
+                <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">The challenge</p>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground md:text-base">
                   Consultants struggle with thousands of pages of SAP documentation — slowing onboarding
                   and increasing configuration error rates across complex implementations.

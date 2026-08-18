@@ -67,8 +67,7 @@ export function Process() {
           borderColor: 'color-mix(in srgb, var(--primary) 75%, transparent)',
           color: 'var(--primary)',
           backgroundColor: 'color-mix(in srgb, var(--primary) 10%, var(--background))',
-          boxShadow:
-            '0 0 0 4px color-mix(in srgb, var(--primary) 16%, transparent), 0 0 28px color-mix(in srgb, var(--primary) 28%, transparent)',
+          boxShadow: 'none',
           duration: 0.45,
           ease: 'power2.out',
           overwrite: 'auto',
@@ -176,7 +175,7 @@ export function Process() {
   }, [])
 
   return (
-    <Section id="process" className="bg-card/30" ref={sectionRef}>
+    <Section id="process" ref={sectionRef}>
       <SectionHeading
         eyebrow="Delivery Process"
         title="A disciplined path from idea to scale"
@@ -188,28 +187,26 @@ export function Process() {
           aria-hidden
           className="pointer-events-none absolute top-6 right-[calc((100%-3rem)/12)] left-6 hidden h-px lg:block"
         >
-          <div className="absolute inset-0 bg-border/70" />
+          <div className="absolute inset-0 bg-foreground/15" />
           <div
             ref={fillRef}
-            className="absolute inset-y-0 left-0 w-full origin-left bg-linear-to-r from-primary via-primary to-accent will-change-transform"
+            className="absolute inset-y-0 left-0 w-full origin-left bg-primary will-change-transform"
             style={{ transform: 'scaleX(0)' }}
           />
           <div
             ref={headRef}
-            className="absolute top-1/2 z-20 h-3.5 w-3.5 -translate-y-1/2 rounded-full bg-accent opacity-0 shadow-[0_0_0_4px_rgba(244,63,94,0.2),0_0_22px_rgba(244,63,94,0.85)] will-change-transform"
-          >
-            <span className="absolute inset-0 animate-ping rounded-full bg-accent/50" />
-          </div>
+            className="absolute top-1/2 z-20 h-2.5 w-2.5 -translate-y-1/2 bg-primary opacity-0 will-change-transform"
+          />
         </div>
 
         <div
           aria-hidden
           className="pointer-events-none absolute top-2 bottom-2 left-[1.4rem] w-px overflow-hidden lg:hidden"
         >
-          <div className="absolute inset-0 bg-border/70" />
+          <div className="absolute inset-0 bg-foreground/15" />
           <div
             ref={mobileFillRef}
-            className="absolute inset-x-0 top-0 h-full origin-top bg-linear-to-b from-primary to-accent will-change-transform"
+            className="absolute inset-x-0 top-0 h-full origin-top bg-primary will-change-transform"
             style={{ transform: 'scaleY(0)' }}
           />
         </div>
@@ -232,13 +229,13 @@ export function Process() {
                       iconRefs.current[i] = el
                     }}
                     className={cn(
-                      'relative z-10 grid h-12 w-12 place-items-center rounded-xl border bg-background shadow-sm',
+                      'relative z-10 grid h-11 w-11 place-items-center border border-foreground/15 bg-background',
                     )}
                   >
-                    <Icon className="h-5 w-5" />
+                    <Icon className="h-4 w-4" />
                   </span>
                 </div>
-                <span className="font-mono text-xs text-muted-foreground">
+                <span className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <h3 className="mt-1 font-heading text-base font-semibold text-foreground">

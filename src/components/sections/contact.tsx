@@ -39,10 +39,10 @@ export function Contact() {
 
   return (
     <Section id="contact" ref={sectionRef}>
-      <div ref={panelRef} className="overflow-hidden rounded-3xl border border-border bg-card">
+      <div ref={panelRef} className="overflow-hidden border border-foreground/15 bg-card">
         <div className="grid lg:grid-cols-2">
-          <div className="relative border-b border-border p-8 sm:p-10 lg:border-r lg:border-b-0">
-            <div aria-hidden className="pointer-events-none absolute inset-0 dot-bg opacity-30" />
+          <div className="relative border-b border-foreground/15 p-8 sm:p-10 lg:border-r lg:border-b-0">
+            <div aria-hidden className="pointer-events-none absolute inset-0 stripe-bg opacity-20" />
             <div className="relative">
               <Eyebrow>Contact</Eyebrow>
               <h2 className="mt-5 font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl">
@@ -54,19 +54,19 @@ export function Contact() {
               </p>
               <a
                 href="mailto:hello@zcon.solutions"
-                className="mt-8 inline-flex w-fit items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-primary"
+                className="mt-8 inline-flex w-fit items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-foreground transition-colors hover:text-primary"
               >
-                <Mail className="h-4 w-4 text-primary" />
+                <Mail className="h-3.5 w-3.5 text-primary" />
                 hello@zcon.solutions
               </a>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-border bg-background/60 p-5 backdrop-blur">
-                  <MapPin className="h-5 w-5 text-primary" />
+              <div className="mt-8 grid gap-px overflow-hidden border border-foreground/15 bg-foreground/15 sm:grid-cols-2">
+                <div className="bg-background p-5">
+                  <MapPin className="h-4 w-4 text-primary" />
                   <p className="mt-3 font-heading text-base font-semibold">Pune, India</p>
                   <p className="mt-0.5 text-sm text-muted-foreground">Engineering & Delivery HQ</p>
                 </div>
-                <div className="rounded-2xl border border-border bg-background/60 p-5 backdrop-blur">
-                  <MapPin className="h-5 w-5 text-primary" />
+                <div className="bg-background p-5">
+                  <MapPin className="h-4 w-4 text-primary" />
                   <p className="mt-3 font-heading text-base font-semibold">Delaware, USA</p>
                   <p className="mt-0.5 text-sm text-muted-foreground">North America Operations</p>
                 </div>

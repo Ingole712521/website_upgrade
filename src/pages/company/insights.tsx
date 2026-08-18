@@ -136,13 +136,13 @@ function NewsletterForm() {
         name="email"
         required
         placeholder="Enter your work email"
-        className="h-11 flex-1 rounded-xl border border-border bg-background px-4 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-2 focus:ring-primary/20"
+        className="h-11 flex-1 rounded-sm border border-foreground/20 bg-background px-4 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary focus:ring-1 focus:ring-primary/30"
       />
       <motion.button
         type="submit"
         whileHover={{ y: -2 }}
         whileTap={{ scale: 0.98 }}
-        className="inline-flex h-11 items-center justify-center rounded-xl bg-primary px-5 text-sm font-medium text-primary-foreground"
+        className="inline-flex h-11 items-center justify-center rounded-sm bg-primary px-5 font-mono text-xs font-medium uppercase tracking-[0.14em] text-primary-foreground transition-colors hover:bg-foreground hover:text-background"
       >
         Subscribe
       </motion.button>
@@ -186,7 +186,7 @@ export function InsightsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewportOnce}
             transition={{ duration: 0.65, ease: motionEase }}
-            className="group border-b border-border pb-12"
+            className="group border-b border-foreground/15 pb-12"
           >
             <span className="font-mono text-[0.7rem] uppercase tracking-[0.14em] text-primary">
               {featured.category}
@@ -224,7 +224,7 @@ export function InsightsPage() {
                 variants={staggerItem}
                 whileHover={{ x: 4 }}
                 transition={springSoft}
-                className="group grid gap-3 border-b border-border py-8 md:grid-cols-[8rem_1fr_auto] md:gap-8"
+                className="group grid gap-3 border-b border-foreground/15 py-8 md:grid-cols-[8rem_1fr_auto] md:gap-8"
               >
                 <span className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted-foreground">
                   {insight.category}

@@ -33,16 +33,13 @@ export function ServiceHero({
 }) {
   return (
     <section className="relative overflow-hidden px-5 pb-16 pt-28 sm:px-8 sm:pt-32 md:pb-24">
-      <motion.div
+      <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.1, ease: motionEase }}
-        style={{
-          background:
-            'radial-gradient(ellipse 60% 40% at 12% 8%, rgba(58,174,240,0.14), transparent 60%), radial-gradient(ellipse 50% 35% at 90% 18%, rgba(244,63,94,0.1), transparent 55%)',
-        }}
+        className="pointer-events-none absolute inset-0 -z-10 grid-bg opacity-50"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-0 top-0 -z-10 h-full w-1 bg-primary sm:w-1.5"
       />
 
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
@@ -58,15 +55,13 @@ export function ServiceHero({
 
           <motion.h1
             variants={staggerItem}
-            className="mt-6 font-heading text-4xl font-black leading-[1.03] tracking-tight text-balance sm:text-5xl md:text-6xl"
+            className="mt-6 font-heading text-4xl font-extrabold leading-[1.02] tracking-tight text-balance sm:text-5xl md:text-6xl"
           >
             {title}
             {titleAccent ? (
               <>
                 {' '}
-                <span className="bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-                  {titleAccent}
-                </span>
+                <span className="text-primary">{titleAccent}</span>
               </>
             ) : null}
           </motion.h1>
@@ -84,7 +79,7 @@ export function ServiceHero({
                 <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} transition={springSnappy}>
                   <CtaButton href={primaryCta.href} variant="primary" className="group/btn">
                     {primaryCta.label}
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
                   </CtaButton>
                 </motion.div>
               ) : null}
@@ -133,7 +128,7 @@ export function CapabilityGrid({
         initial="hidden"
         whileInView="show"
         viewport={viewportOnce}
-        className="mt-12 grid gap-4 sm:grid-cols-2"
+        className="mt-12 grid gap-px overflow-hidden border border-foreground/15 bg-foreground/15 sm:grid-cols-2"
       >
         {items.map((item, index) => {
           const Icon = item.icon
@@ -142,22 +137,18 @@ export function CapabilityGrid({
             <motion.article
               key={item.title}
               variants={staggerItem}
-              whileHover={{ y: -6 }}
               transition={springSoft}
               className={cn(
-                'group relative overflow-hidden rounded-2xl border border-border bg-card p-6 hover:border-primary/35 hover:shadow-[0_20px_50px_-30px_rgba(58,174,240,0.45)]',
-                isOddLast && 'sm:col-span-2 sm:mx-auto sm:w-full sm:max-w-[calc(50%-0.5rem)]',
+                'group relative bg-background p-6 transition-colors hover:bg-card',
+                isOddLast && 'sm:col-span-2',
               )}
             >
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -top-16 -right-16 h-40 w-40 rounded-full bg-primary/20 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-              />
-              <motion.span
-                className="grid h-11 w-11 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3"
-              >
-                <Icon className="h-5 w-5" />
-              </motion.span>
+              <div className="flex items-center justify-between">
+                <Icon className="h-5 w-5 text-primary" />
+                <span className="font-mono text-[0.65rem] text-muted-foreground">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+              </div>
               <h3 className="mt-5 font-heading text-lg font-semibold tracking-tight text-foreground">
                 {item.title}
               </h3>
@@ -195,50 +186,35 @@ export function ServiceHeroVisual({
       className="relative"
     >
       <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -top-10 -right-8 h-40 w-40 rounded-full bg-primary/20 blur-3xl"
-        animate={reduce ? undefined : { scale: [1, 1.12, 1], opacity: [0.45, 0.75, 0.45] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-8 -left-6 h-36 w-36 rounded-full bg-accent/15 blur-3xl"
-        animate={reduce ? undefined : { scale: [1, 1.15, 1], opacity: [0.35, 0.65, 0.35] }}
-        transition={{ duration: 8.5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-      />
-
-      <motion.div
-        whileHover={{ y: -4 }}
+        whileHover={{ y: -2 }}
         transition={springSoft}
-        className="relative overflow-hidden rounded-2xl border border-border bg-card/70 p-1.5 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.5)] backdrop-blur"
+        className="relative overflow-hidden border border-foreground/15 bg-card"
       >
-        <div className="flex items-center gap-2 rounded-t-xl bg-background/60 px-4 py-3">
-          <span className="h-2.5 w-2.5 rounded-full bg-[#e11d48]/70" />
-          <span className="h-2.5 w-2.5 rounded-full bg-[#0096e6]/40" />
-          <span className="h-2.5 w-2.5 rounded-full bg-muted-foreground/30" />
-          <span className="ml-3 font-mono text-xs text-muted-foreground">zcon / service.app</span>
+        <div className="flex items-center gap-3 border-b border-foreground/15 bg-background px-4 py-3">
+          <span className="h-2 w-2 bg-primary" />
+          <span className="h-2 w-2 bg-foreground/25" />
+          <span className="h-2 w-2 bg-foreground/15" />
+          <span className="ml-2 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
+            zcon / service.app
+          </span>
         </div>
 
-        <div className="border-y border-border bg-background/40 px-4 py-4">
+        <div className="border-b border-foreground/15 bg-background/60 px-4 py-4">
           <div className="flex items-start gap-3">
             {LeadIcon ? (
-              <motion.span
-                className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary"
-                animate={reduce ? undefined : { rotate: [0, -4, 4, 0] }}
-                transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
-              >
+              <span className="grid h-10 w-10 shrink-0 place-items-center border border-foreground/15 text-primary">
                 <LeadIcon className="h-5 w-5" />
-              </motion.span>
+              </span>
             ) : null}
             <div className="min-w-0 flex-1">
               <p className="font-heading text-sm font-semibold text-foreground">{title}</p>
               <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{subtitle}</p>
-              <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-border">
+              <div className="mt-3 h-1 overflow-hidden bg-foreground/10">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: '72%' }}
                   transition={{ duration: 1.15, ease: motionEase, delay: 0.45 }}
-                  className="h-full rounded-full bg-linear-to-r from-primary to-accent"
+                  className="h-full bg-primary"
                 />
               </div>
             </div>
@@ -249,7 +225,7 @@ export function ServiceHeroVisual({
           variants={staggerFast}
           initial="hidden"
           animate="show"
-          className="grid grid-cols-2 gap-1.5 p-1.5"
+          className="grid grid-cols-2 gap-px bg-foreground/10 p-px"
         >
           {nodes.slice(0, 4).map((node) => {
             const Icon = node.icon
@@ -257,34 +233,25 @@ export function ServiceHeroVisual({
               <motion.div
                 key={node.label}
                 variants={staggerItem}
-                whileHover={{ y: -2, borderColor: 'color-mix(in srgb, var(--primary) 45%, transparent)' }}
+                whileHover={reduce ? undefined : { backgroundColor: 'var(--card)' }}
                 transition={springSnappy}
-                className="flex items-center gap-2.5 rounded-lg border border-border bg-background/50 p-3"
+                className="flex items-center gap-2.5 bg-background p-3"
               >
-                <span
-                  className={
-                    node.tone === 'accent'
-                      ? 'grid h-8 w-8 place-items-center rounded-md bg-[#e11d48]/10 text-[#e11d48]'
-                      : 'grid h-8 w-8 place-items-center rounded-md bg-primary/10 text-primary'
-                  }
-                >
-                  <Icon className="h-4 w-4" />
-                </span>
+                <Icon className="h-4 w-4 text-primary" />
                 <span className="text-xs font-medium text-foreground/85">{node.label}</span>
               </motion.div>
             )
           })}
         </motion.div>
 
-        <div className="flex items-center justify-between rounded-b-xl border-t border-border bg-background/40 px-4 py-3">
-          <span className="flex items-center gap-2 text-xs text-muted-foreground">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-            </span>
+        <div className="flex items-center justify-between border-t border-foreground/15 bg-background px-4 py-3">
+          <span className="flex items-center gap-2 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted-foreground">
+            <span className="h-1.5 w-1.5 bg-primary" />
             {footerLeft}
           </span>
-          <span className="font-mono text-xs text-muted-foreground">{footerRight}</span>
+          <span className="font-mono text-[0.65rem] uppercase tracking-[0.12em] text-muted-foreground">
+            {footerRight}
+          </span>
         </div>
       </motion.div>
     </motion.div>

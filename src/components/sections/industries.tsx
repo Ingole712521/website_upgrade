@@ -25,7 +25,7 @@ const industries: { name: string; icon: LucideIcon; blurb: string; to?: string }
 
 export function Industries() {
   return (
-    <Section id="industries" className="bg-card/30">
+    <Section id="industries">
       <SectionHeading
         eyebrow="Industries"
         title="Domain depth across regulated enterprises"
@@ -37,37 +37,36 @@ export function Industries() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: '-80px' }}
-        className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
+        className="mt-12 grid grid-cols-1 gap-0 border-t border-foreground/15 sm:grid-cols-2 lg:grid-cols-4"
       >
         {industries.map((industry) => {
           const Icon = industry.icon
-          const cardClassName =
-            'group relative overflow-hidden rounded-2xl border border-border bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40'
-
-          const content = (
+          const inner = (
             <>
-              <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                <Icon className="h-5 w-5" />
-              </span>
-              <h3 className="mt-4 font-heading text-base font-semibold text-foreground">
+              <div className="flex items-center justify-between">
+                <Icon className="h-5 w-5 text-primary" />
+                <span className="font-mono text-[0.6rem] uppercase tracking-[0.16em] text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100">
+                  {industry.to ? 'Open →' : 'Soon'}
+                </span>
+              </div>
+              <h3 className="mt-8 font-heading text-lg font-semibold text-foreground">
                 {industry.name}
               </h3>
-              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{industry.blurb}</p>
-              <span
-                aria-hidden
-                className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-[#e11d48] transition-all duration-300 group-hover:w-full"
-              />
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{industry.blurb}</p>
             </>
           )
+
+          const className =
+            'group block border-b border-r border-foreground/15 p-6 transition-colors hover:bg-foreground/[0.03] sm:min-h-[180px]'
 
           return (
             <motion.article key={industry.name} variants={staggerItem}>
               {industry.to ? (
-                <Link to={industry.to} className={`block ${cardClassName}`}>
-                  {content}
+                <Link to={industry.to} className={className}>
+                  {inner}
                 </Link>
               ) : (
-                <div className={cardClassName}>{content}</div>
+                <div className={className}>{inner}</div>
               )}
             </motion.article>
           )
@@ -75,10 +74,10 @@ export function Industries() {
 
         <motion.div
           variants={staggerItem}
-          className="flex flex-col justify-center rounded-2xl border border-dashed border-border bg-primary/5 p-6"
+          className="flex flex-col justify-end border-b border-r border-foreground/15 bg-foreground p-6 text-background sm:min-h-[180px]"
         >
-          <p className="font-heading text-3xl font-bold text-primary">7+</p>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="font-heading text-4xl font-bold text-primary">7+</p>
+          <p className="mt-2 text-sm text-background/65">
             regulated industries served across three continents.
           </p>
         </motion.div>

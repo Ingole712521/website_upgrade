@@ -222,10 +222,10 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
     const [hoveredId, setHoveredId] = useState<string | null>(null)
 
     const dustItems = [
-      { delay: '-4s', radius: '165px', color: '#0096e6' },
+      { delay: '-4s', radius: '165px', color: '#ff4d00' },
       { delay: '-11s', radius: '260px', color: '#38bdf8' },
-      { delay: '-19s', radius: '340px', color: '#e11d48' },
-      { delay: '-28s', radius: '395px', color: '#0096e6' },
+      { delay: '-19s', radius: '340px', color: '#ff4d00' },
+      { delay: '-28s', radius: '395px', color: '#0b0b0b' },
       { delay: '-7s', radius: '200px', color: '#a855f7' },
       { delay: '-15s', radius: '365px', color: '#eab308' },
       { delay: '-23s', radius: '430px', color: '#38bdf8' },
@@ -263,19 +263,19 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
             {centerLogo ? (
               typeof centerLogo === 'string' ? (
                 <img
-                  className="relative z-20 h-14 w-14 rounded-full border-2 border-accent/35 object-cover shadow-[0_0_30px_rgba(244,63,94,0.3)] md:h-20 md:w-20"
+                  className="relative z-20 h-14 w-14 border-2 border-primary/40 object-cover md:h-20 md:w-20"
                   src={centerLogo}
                   alt={centerLogoAlt}
                   width={80}
                   height={80}
                 />
               ) : (
-                <div className="relative z-20 flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent/35 bg-background p-2 shadow-[0_0_30px_rgba(244,63,94,0.3)] md:h-20 md:w-20">
+                <div className="relative z-20 flex h-14 w-14 items-center justify-center border-2 border-primary/40 bg-background p-2 md:h-20 md:w-20">
                   {centerLogo}
                 </div>
               )
             ) : (
-              <div className="relative z-20 flex h-14 w-14 items-center justify-center rounded-full border-2 border-accent/35 bg-background p-2 shadow-[0_0_30px_rgba(244,63,94,0.3)] md:h-20 md:w-20">
+              <div className="relative z-20 flex h-14 w-14 items-center justify-center border-2 border-primary/40 bg-background p-2 md:h-20 md:w-20">
                 <OrbitIcon className="h-8 w-8 animate-spin text-accent" style={{ animationDuration: '10s' }} />
               </div>
             )}

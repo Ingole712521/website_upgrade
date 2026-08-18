@@ -164,7 +164,7 @@ export function TechStack() {
     <section
       ref={sectionRef}
       id="tech-stack"
-      className="relative overflow-hidden border-y border-border bg-background px-5 py-16 sm:px-8 sm:py-20"
+      className="relative overflow-hidden border-y border-foreground/15 bg-background px-5 py-16 sm:px-8 sm:py-20"
     >
       <div className="mx-auto max-w-6xl">
         <p className="mb-10 text-center font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted-foreground sm:mb-12 sm:text-xs">

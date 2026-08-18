@@ -26,84 +26,85 @@
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Satoshi", "Inter", ui-sans-serif, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Syne", "IBM Plex Sans", ui-sans-serif, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
+  --radius-sm: calc(var(--radius) - 1px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
   --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 16px);
+  --radius-2xl: calc(var(--radius) + 6px);
+  --radius-3xl: calc(var(--radius) + 8px);
 }
 
+/* ─────────────────────────────────────────────
+   Systems Archive — retro-minimal engineering
+   International Orange · cool concrete · sharp ink
+   ───────────────────────────────────────────── */
+
 :root {
-  --radius: 0.75rem;
-  --font-satoshi: "Satoshi";
+  --radius: 0.125rem;
 
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --card: #f8fafc;
-  --card-foreground: #0f172a;
-  --popover: #ffffff;
-  --popover-foreground: #0f172a;
+  --background: #e9eaec;
+  --foreground: #0b0b0b;
+  --card: #f4f4f5;
+  --card-foreground: #0b0b0b;
+  --popover: #f4f4f5;
+  --popover-foreground: #0b0b0b;
 
-  --primary: #0096e6;
+  --primary: #ff4d00;
   --primary-foreground: #ffffff;
 
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
+  --secondary: #dcdde0;
+  --secondary-foreground: #0b0b0b;
 
-  --muted: #f8fafc;
-  --muted-foreground: #64748b;
+  --muted: #dcdde0;
+  --muted-foreground: #5a5a5a;
 
-  --accent: #e11d48;
+  --accent: #ff4d00;
   --accent-foreground: #ffffff;
 
-  --destructive: #e11d48;
+  --destructive: #c62828;
   --destructive-foreground: #ffffff;
 
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #0096e6;
+  --border: #c8c9cc;
+  --input: #c8c9cc;
+  --ring: #ff4d00;
 
-  --brand: #0096e6;
+  --brand: #ff4d00;
   --brand-foreground: #ffffff;
 }
 
 .dark {
-  /* Graphite base — not blue-slate */
-  --background: #0a0a0b;
-  --foreground: #f4f4f5;
-  --card: #141416;
-  --card-foreground: #f4f4f5;
-  --popover: #121214;
-  --popover-foreground: #f4f4f5;
+  --background: #111111;
+  --foreground: #f0f0ee;
+  --card: #1a1a1a;
+  --card-foreground: #f0f0ee;
+  --popover: #1a1a1a;
+  --popover-foreground: #f0f0ee;
 
-  /* Brand blue reserved for CTAs / highlights only */
-  --primary: #3aaef0;
-  --primary-foreground: #041018;
+  --primary: #ff5c1a;
+  --primary-foreground: #0b0b0b;
 
-  --secondary: #1c1c1f;
-  --secondary-foreground: #f4f4f5;
+  --secondary: #242424;
+  --secondary-foreground: #f0f0ee;
 
-  --muted: #18181b;
-  --muted-foreground: #a1a1aa;
+  --muted: #1f1f1f;
+  --muted-foreground: #9a9a96;
 
-  /* Brand red as the second voice in dark mode */
-  --accent: #f43f5e;
-  --accent-foreground: #ffffff;
+  --accent: #ff5c1a;
+  --accent-foreground: #0b0b0b;
 
-  --destructive: #fb7185;
-  --destructive-foreground: #ffffff;
+  --destructive: #ff6b6b;
+  --destructive-foreground: #0b0b0b;
 
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.1);
-  --ring: #3aaef0;
+  --border: #2e2e2e;
+  --input: #2e2e2e;
+  --ring: #ff5c1a;
 
-  --brand: #3aaef0;
-  --brand-foreground: #041018;
+  --brand: #ff5c1a;
+  --brand-foreground: #0b0b0b;
 }
 
 @layer base {
@@ -119,22 +120,50 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "ss01", "cv01", "cv02";
+    font-feature-settings: "ss01", "kern";
+    letter-spacing: -0.01em;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    background-image:
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--foreground) 4%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--foreground) 4%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 48px 48px;
+    background-attachment: fixed;
   }
   body::-webkit-scrollbar {
     display: none;
   }
   .dark body {
     background-image:
-      radial-gradient(ellipse 90% 55% at 12% -8%, rgba(244, 63, 94, 0.1), transparent 55%),
-      radial-gradient(ellipse 70% 45% at 92% 8%, rgba(58, 174, 240, 0.07), transparent 50%),
-      radial-gradient(ellipse 50% 35% at 50% 100%, rgba(250, 204, 21, 0.04), transparent 60%);
-    background-attachment: fixed;
+      linear-gradient(
+        to right,
+        color-mix(in srgb, var(--foreground) 5%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--foreground) 5%, transparent) 1px,
+        transparent 1px
+      );
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.03em;
   }
   ::selection {
-    background: color-mix(in srgb, var(--accent) 30%, transparent);
+    background: color-mix(in srgb, var(--primary) 35%, transparent);
+    color: var(--foreground);
   }
 }
 
@@ -147,22 +176,34 @@
     background-image:
       linear-gradient(
         to right,
-        color-mix(in srgb, var(--foreground) 6%, transparent) 1px,
+        color-mix(in srgb, var(--foreground) 8%, transparent) 1px,
         transparent 1px
       ),
       linear-gradient(
         to bottom,
-        color-mix(in srgb, var(--foreground) 6%, transparent) 1px,
+        color-mix(in srgb, var(--foreground) 8%, transparent) 1px,
         transparent 1px
       );
-    background-size: 56px 56px;
+    background-size: 48px 48px;
   }
   .dot-bg {
     background-image: radial-gradient(
-      color-mix(in srgb, var(--foreground) 10%, transparent) 1px,
+      color-mix(in srgb, var(--foreground) 12%, transparent) 1px,
       transparent 1px
     );
-    background-size: 22px 22px;
+    background-size: 16px 16px;
+  }
+  .stripe-bg {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 6px,
+      color-mix(in srgb, var(--foreground) 5%, transparent) 6px,
+      color-mix(in srgb, var(--foreground) 5%, transparent) 7px
+    );
+  }
+  .ink-rule {
+    border-color: color-mix(in srgb, var(--foreground) 18%, transparent);
   }
   .mask-fade-b {
     -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);

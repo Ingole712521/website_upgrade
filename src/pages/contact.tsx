@@ -20,13 +20,10 @@ const offices = [
 export function ContactPage() {
   return (
     <main className="relative px-5 pt-28 pb-20 sm:px-8 sm:pt-32 md:pb-28">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 grid-bg opacity-40" />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            'radial-gradient(ellipse 60% 40% at 15% 10%, rgba(244,63,94,0.12), transparent 60%), radial-gradient(ellipse 50% 35% at 85% 20%, rgba(58,174,240,0.1), transparent 55%)',
-        }}
+        className="pointer-events-none absolute right-0 top-0 -z-10 h-full w-1 bg-primary sm:w-1.5"
       />
 
       <div className="mx-auto w-full max-w-6xl">
@@ -34,11 +31,11 @@ export function ContactPage() {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: motionEase }}
-          className="overflow-hidden rounded-3xl border border-border bg-card"
+          className="overflow-hidden border border-foreground/15 bg-card"
         >
           <div className="grid lg:grid-cols-2">
-            <div className="relative border-b border-border p-8 sm:p-10 lg:border-r lg:border-b-0">
-              <div aria-hidden className="pointer-events-none absolute inset-0 dot-bg opacity-30" />
+            <div className="relative border-b border-foreground/15 p-8 sm:p-10 lg:border-r lg:border-b-0">
+              <div aria-hidden className="pointer-events-none absolute inset-0 stripe-bg opacity-20" />
               <motion.div
                 variants={staggerContainer}
                 initial="hidden"
@@ -50,56 +47,52 @@ export function ContactPage() {
                 </motion.div>
                 <motion.h1
                   variants={staggerItem}
-                  className="font-heading text-3xl font-bold tracking-tight text-balance sm:text-4xl md:text-[2.75rem] md:leading-[1.08]"
+                  className="font-heading text-3xl font-extrabold tracking-tight text-balance sm:text-4xl md:text-5xl"
                 >
-                  Let&apos;s engineer what&apos;s next
+                  Let&apos;s build what&apos;s next
                 </motion.h1>
                 <motion.p
                   variants={staggerItem}
-                  className="max-w-md text-base leading-relaxed text-muted-foreground md:text-lg"
+                  className="max-w-md text-base leading-relaxed text-muted-foreground"
                 >
-                  Book a consultation with our engineering team. We&apos;ll map your goals to a
-                  concrete, AI-first delivery plan.
+                  Share your challenge. We&apos;ll respond within one business day with a concrete
+                  next step.
                 </motion.p>
 
                 <motion.a
                   variants={staggerItem}
                   href="mailto:hello@zcon.solutions"
-                  className="inline-flex w-fit items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-primary"
+                  className="mt-2 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-foreground transition-colors hover:text-primary"
                 >
-                  <Mail className="h-4 w-4 text-primary" />
+                  <Mail className="h-3.5 w-3.5 text-primary" />
                   hello@zcon.solutions
                 </motion.a>
 
-                <motion.div variants={staggerItem} className="mt-4 grid gap-4 sm:grid-cols-2">
+                <motion.div variants={staggerItem} className="mt-6 grid gap-4 sm:grid-cols-2">
                   {offices.map((office) => (
                     <div
                       key={office.city}
-                      className="rounded-2xl border border-border bg-background/60 p-5 backdrop-blur"
+                      className="border border-foreground/15 bg-background p-4"
                     >
-                      <MapPin className="h-5 w-5 text-primary" />
-                      <p className="mt-3 font-heading text-base font-semibold text-foreground">
+                      <div className="flex items-center gap-2 text-primary">
+                        <MapPin className="h-3.5 w-3.5" />
+                        <span className="font-mono text-[0.65rem] uppercase tracking-[0.14em]">
+                          {office.detail}
+                        </span>
+                      </div>
+                      <p className="mt-2 font-heading text-base font-semibold text-foreground">
                         {office.city}
                       </p>
-                      <p className="mt-0.5 text-sm text-muted-foreground">{office.region}</p>
-                      <p className="mt-1 font-mono text-xs text-muted-foreground">{office.detail}</p>
+                      <p className="mt-1 text-sm text-muted-foreground">{office.region}</p>
                     </div>
                   ))}
                 </motion.div>
               </motion.div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.15, ease: motionEase }}
-              className="p-8 sm:p-10"
-            >
-              <h2 className="mb-6 font-heading text-xl font-semibold text-foreground">
-                Send a message
-              </h2>
+            <div className="p-8 sm:p-10">
               <ContactForm />
-            </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>

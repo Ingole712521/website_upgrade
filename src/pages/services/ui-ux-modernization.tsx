@@ -129,7 +129,7 @@ export function UiUxModernizationPage() {
             initial="hidden"
             whileInView="show"
             viewport={viewportOnce}
-            className="mt-12 overflow-hidden rounded-3xl border border-border bg-card p-4 sm:p-6"
+            className="mt-12 overflow-hidden border border-foreground/15 bg-card p-4 sm:p-6"
           >
             <div className="grid items-stretch gap-4 lg:grid-cols-[1fr_auto_1fr]">
               <motion.div
@@ -137,7 +137,7 @@ export function UiUxModernizationPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={viewportOnce}
                 transition={{ duration: 0.55, ease: motionEase }}
-                className="rounded-2xl border border-border bg-muted/40 p-5 dark:bg-background/50"
+                className="border border-foreground/15 bg-muted/40 p-5 dark:bg-background/50"
               >
                 <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
                   Legacy interface
@@ -150,15 +150,15 @@ export function UiUxModernizationPage() {
                       whileInView={{ width: `${w}%`, opacity: 1 }}
                       viewport={viewportOnce}
                       transition={{ duration: 0.55, delay: 0.08 * i, ease: motionEase }}
-                      className="h-8 rounded-lg bg-border/80"
+                      className="h-8 bg-foreground/10"
                     />
                   ))}
                 </div>
                 <div className="mt-5 flex flex-wrap gap-2">
-                  <span className="rounded-full border border-border bg-background px-3 py-1 text-xs text-muted-foreground">
+                  <span className="border border-foreground/15 bg-background px-3 py-1 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
                     Manual checks
                   </span>
-                  <span className="rounded-full border border-border bg-background px-3 py-1 text-xs text-muted-foreground">
+                  <span className="border border-foreground/15 bg-background px-3 py-1 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
                     Hidden status
                   </span>
                 </div>
@@ -181,7 +181,7 @@ export function UiUxModernizationPage() {
                       whileHover={{ scale: 1.08 }}
                       className="flex flex-col items-center gap-1.5"
                     >
-                      <span className="grid h-10 w-10 place-items-center rounded-full border border-primary/30 bg-primary/10 text-primary">
+                      <span className="grid h-10 w-10 place-items-center border border-foreground/15 bg-primary/10 text-primary">
                         <Icon className="h-4 w-4" />
                       </span>
                       <span className="font-mono text-[0.6rem] uppercase tracking-[0.12em] text-muted-foreground">
@@ -197,19 +197,19 @@ export function UiUxModernizationPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={viewportOnce}
                 transition={{ duration: 0.55, ease: motionEase, delay: 0.08 }}
-                className="rounded-2xl border border-primary/25 bg-linear-to-br from-primary/10 via-card to-accent/10 p-5"
+                className="border border-foreground/15 bg-foreground p-5 text-background"
               >
                 <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-primary">
                   zCon modernized UI
                 </p>
-                <p className="mt-2 font-heading text-sm font-semibold text-foreground">
+                <p className="mt-2 font-heading text-sm font-semibold text-background">
                   Experience command center
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {['Plan', 'Build', 'Ship', 'Learn'].map((item) => (
                     <span
                       key={item}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background/80 px-3 py-1 text-xs text-foreground"
+                      className="inline-flex items-center gap-1.5 border border-background/25 bg-background/10 px-3 py-1 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-background"
                     >
                       <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                       {item}
@@ -231,22 +231,22 @@ export function UiUxModernizationPage() {
                         variants={staggerItem}
                         whileHover={{ y: -2 }}
                         transition={springSoft}
-                        className="rounded-xl border border-border bg-background/80 p-3"
+                        className="border border-background/20 bg-background/10 p-3"
                       >
                         <Icon className="h-4 w-4 text-primary" />
-                        <p className="mt-2 text-sm font-semibold text-foreground">{metric.value}</p>
-                        <p className="text-[11px] text-muted-foreground">{metric.label}</p>
+                        <p className="mt-2 text-sm font-semibold text-background">{metric.value}</p>
+                        <p className="text-[11px] text-background/60">{metric.label}</p>
                       </motion.div>
                     )
                   })}
                 </motion.div>
                 <div className="mt-4">
-                  <p className="text-xs font-medium text-muted-foreground">Guided workflow</p>
+                  <p className="text-xs font-medium text-background/60">Guided workflow</p>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {['Eligibility review', 'Approval path', 'Release notes'].map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-border bg-background/80 px-3 py-1 text-xs text-foreground"
+                        className="border border-background/25 bg-background/10 px-3 py-1 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-background"
                       >
                         {item}
                       </span>

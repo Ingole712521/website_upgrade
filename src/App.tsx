@@ -27,7 +27,7 @@ import {
 
 function App() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
       <BrowserRouter>
         <SmoothScrollProvider>
           <ScrollToTop />

@@ -121,7 +121,7 @@ export function LegacyMaintenancePage() {
           >
             <motion.div
               aria-hidden
-              className="absolute top-0 bottom-0 left-[1.35rem] w-px origin-top bg-linear-to-b from-primary/50 via-border to-transparent md:left-1/2 md:-translate-x-px"
+              className="absolute top-0 bottom-0 left-[1.35rem] w-px origin-top bg-foreground/15 md:left-1/2 md:-translate-x-px"
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
               viewport={viewportOnce}
@@ -141,10 +141,10 @@ export function LegacyMaintenancePage() {
                       <motion.div
                         whileHover={{ y: -4 }}
                         transition={springSoft}
-                        className={`max-w-md rounded-2xl border border-border bg-card p-5 hover:border-primary/35 ${right ? '' : 'md:ml-auto'}`}
+                        className={`max-w-md border border-foreground/15 bg-card p-5 hover:border-primary/35 ${right ? '' : 'md:ml-auto'}`}
                       >
                         <div className={`flex items-center gap-3 ${right ? '' : 'md:flex-row-reverse'}`}>
-                          <span className="grid h-10 w-10 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+                          <span className="grid h-10 w-10 place-items-center border border-foreground/15 bg-primary/10 text-primary">
                             <Icon className="h-5 w-5" />
                           </span>
                           <div>
@@ -163,7 +163,7 @@ export function LegacyMaintenancePage() {
                       whileInView={{ scale: [0.7, 1.12, 1] }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.45, delay: 0.05 * i }}
-                      className="absolute top-5 left-3 grid h-7 w-7 place-items-center rounded-full border border-primary/40 bg-background text-xs font-semibold text-primary md:left-1/2 md:-translate-x-1/2"
+                      className="absolute top-5 left-3 grid h-7 w-7 place-items-center border border-primary bg-background font-mono text-xs font-semibold text-primary md:left-1/2 md:-translate-x-1/2"
                     >
                       {i + 1}
                     </motion.div>

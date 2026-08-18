@@ -94,7 +94,7 @@ export function CapabilityList({
               </span>
               <div className="flex items-start gap-3 md:contents">
                 {Icon ? (
-                  <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary md:mt-0">
+                  <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center border border-foreground/15 text-primary md:mt-0">
                     <Icon className="h-4 w-4" />
                   </span>
                 ) : null}
@@ -256,16 +256,9 @@ export function FactoryFlow({
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={viewportOnce}
           transition={{ duration: 0.7, ease: motionEase }}
-          className="relative overflow-hidden rounded-3xl border border-border bg-card/50 p-5"
+          className="relative overflow-hidden border border-foreground/15 bg-card p-5"
         >
-          <motion.div
-            aria-hidden
-            className="pointer-events-none absolute -top-20 -right-16 h-48 w-48 rounded-full bg-primary/15 blur-3xl"
-            animate={reduce ? undefined : { opacity: [0.4, 0.75, 0.4], scale: [1, 1.1, 1] }}
-            transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-          />
-
-          <div className="relative grid gap-3 sm:grid-cols-2">
+          <div className="relative grid gap-px overflow-hidden border border-foreground/15 bg-foreground/15 sm:grid-cols-2">
             {stages.map((stage, i) => {
               const Icon = stage.icon
               return (
@@ -275,12 +268,9 @@ export function FactoryFlow({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={viewportOnce}
                   transition={{ delay: 0.06 * i, duration: 0.5, ease: motionEase }}
-                  whileHover={{ y: -3 }}
-                  className="rounded-2xl border border-border/80 bg-background/60 p-4 backdrop-blur"
+                  className="bg-background p-4"
                 >
-                  <span className="grid h-8 w-8 place-items-center rounded-lg bg-primary/10 text-primary">
-                    <Icon className="h-4 w-4" />
-                  </span>
+                  <Icon className="h-4 w-4 text-primary" />
                   <p className="mt-3 text-sm font-semibold text-foreground">{stage.title}</p>
                   <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{stage.desc}</p>
                 </motion.div>

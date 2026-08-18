@@ -149,12 +149,12 @@ export function MicroGccPage() {
             initial="hidden"
             whileInView="show"
             viewport={viewportOnce}
-            className="mt-12 overflow-hidden rounded-3xl border border-border bg-card/50"
+            className="mt-12 overflow-hidden border border-foreground/15 bg-card"
           >
             <div className="overflow-x-auto">
               <table className="w-full min-w-[720px] border-collapse text-left">
                 <thead>
-                  <tr className="border-b border-border">
+                  <tr className="border-b border-foreground/15">
                     <th className="px-5 py-4 font-mono text-[0.7rem] font-medium uppercase tracking-[0.14em] text-muted-foreground sm:px-6">
                       Capability / Model
                     </th>
@@ -184,7 +184,7 @@ export function MicroGccPage() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={viewportOnce}
                       transition={{ delay: 0.06 * index, duration: 0.45 }}
-                      className="border-b border-border last:border-b-0"
+                      className="border-b border-foreground/15 last:border-b-0"
                     >
                       <td className="px-5 py-4 text-sm font-medium text-foreground sm:px-6">
                         {row.capability}
@@ -219,7 +219,7 @@ export function MicroGccPage() {
                 variants={staggerItem}
                 whileHover={{ y: -2 }}
                 transition={springSoft}
-                className="rounded-2xl border border-border bg-card p-4"
+                className="border border-foreground/15 bg-card p-4"
               >
                 <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
                   {row.capability}

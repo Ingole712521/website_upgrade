@@ -279,17 +279,13 @@ export function CaseStudiesPage() {
                   variants={staggerItem}
                   whileHover={{ y: -5 }}
                   transition={springSoft}
-                  className="group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card/50 p-6 sm:p-7"
+                  className="group relative flex flex-col overflow-hidden border border-foreground/15 bg-card p-6 sm:p-7"
                 >
-                  <motion.div
-                    aria-hidden
-                    className="pointer-events-none absolute -top-20 -right-16 h-44 w-44 rounded-full bg-primary/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
-                  />
                   <div className="relative flex items-center gap-2.5">
                     <motion.span
                       animate={{ rotate: [0, -4, 4, 0] }}
                       transition={{ duration: 6 + index, repeat: Infinity, ease: 'easeInOut' }}
-                      className="grid h-9 w-9 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary"
+                      className="grid h-9 w-9 place-items-center border border-foreground/15 bg-primary/10 text-primary"
                     >
                       <Icon className="h-4 w-4" />
                     </motion.span>
@@ -302,7 +298,7 @@ export function CaseStudiesPage() {
                   </h3>
                   <div className="relative mt-5 space-y-4">
                     <div>
-                      <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-accent">
+                      <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
                         Challenge
                       </p>
                       <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
@@ -322,7 +318,7 @@ export function CaseStudiesPage() {
                     {item.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-lg border border-border bg-background/70 px-2.5 py-1 text-xs text-muted-foreground"
+                        className="border border-foreground/15 bg-background px-2.5 py-1 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground"
                       >
                         {tag}
                       </span>
@@ -354,7 +350,7 @@ export function CaseStudiesPage() {
                 variants={staggerItem}
                 whileHover={{ y: -4, borderColor: 'color-mix(in srgb, var(--primary) 35%, transparent)' }}
                 transition={springSoft}
-                className="flex flex-col rounded-2xl border border-border bg-card/60 p-5"
+                className="flex flex-col border border-foreground/15 bg-card p-5"
               >
                 <p className="font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground">
                   {item.category}
@@ -365,7 +361,7 @@ export function CaseStudiesPage() {
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
                   {item.description}
                 </p>
-                <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 border-t border-border pt-4">
+                <div className="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 border-t border-foreground/15 pt-4">
                   {item.tags.map((tag, i) => (
                     <span key={tag} className="inline-flex items-center gap-2 text-xs text-muted-foreground/80">
                       {i > 0 ? <span className="text-border">·</span> : null}
@@ -408,9 +404,9 @@ export function CaseStudiesPage() {
                   variants={index % 2 === 0 ? fadeUp : fadeScale}
                   whileHover={{ y: -4 }}
                   transition={springSoft}
-                  className="flex gap-4 rounded-2xl border border-border bg-card/40 p-5"
+                  className="flex gap-4 border border-foreground/15 bg-card p-5"
                 >
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center border border-foreground/15 bg-primary/10 text-primary">
                     <Icon className="h-4 w-4" />
                   </span>
                   <div>

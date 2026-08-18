@@ -195,7 +195,7 @@ function TechLogo({ item }: { item: TechItem }) {
   return (
     <span
       aria-hidden
-      className="grid h-4 w-4 shrink-0 place-items-center rounded-md border border-border bg-muted text-[0.5rem] font-bold uppercase tracking-tight text-muted-foreground"
+      className="grid h-4 w-4 shrink-0 place-items-center border border-foreground/15 bg-muted text-[0.5rem] font-bold uppercase tracking-tight text-muted-foreground"
     >
       {item.name.slice(0, 2)}
     </span>
@@ -247,26 +247,15 @@ export function TechnologiesPage() {
                   initial="hidden"
                   whileInView="show"
                   viewport={viewportOnce}
-                  className="relative overflow-hidden rounded-3xl border border-border bg-card/40"
+                  className="relative overflow-hidden border border-foreground/15 bg-card"
                 >
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 opacity-70"
-                    style={{
-                      background:
-                        categoryIndex % 2 === 0
-                          ? 'radial-gradient(ellipse 50% 60% at 0% 0%, color-mix(in srgb, var(--primary) 12%, transparent), transparent 70%)'
-                          : 'radial-gradient(ellipse 50% 60% at 100% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%)',
-                    }}
-                  />
-
                   <div className="relative grid gap-8 p-6 sm:p-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.6fr)] lg:gap-10 lg:p-10">
                     <motion.div variants={staggerItem} className="flex flex-col justify-between gap-6">
                       <div>
                         <motion.span
                           whileHover={{ rotate: -6, scale: 1.06 }}
                           transition={springSoft}
-                          className="grid h-12 w-12 place-items-center rounded-2xl border border-primary/20 bg-primary/10 text-primary"
+                          className="grid h-12 w-12 place-items-center border border-foreground/15 bg-primary/10 text-primary"
                         >
                           <Icon className="h-5 w-5" />
                         </motion.span>
@@ -295,7 +284,7 @@ export function TechnologiesPage() {
                                 key={item.name}
                                 whileHover={{ y: -2 }}
                                 transition={springSoft}
-                                className="inline-flex items-center gap-2 rounded-xl border border-border bg-background/80 px-3 py-1.5 text-sm text-foreground/85 shadow-[0_1px_0_rgba(255,255,255,0.04)_inset] transition-colors hover:border-primary/40 hover:text-foreground"
+                                className="inline-flex items-center gap-2 border border-foreground/15 bg-background px-3 py-1.5 text-sm text-foreground/85 transition-colors hover:border-primary hover:text-foreground"
                               >
                                 <TechLogo item={item} />
                                 {item.name}

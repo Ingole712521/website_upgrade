@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { ArrowRight, Sparkles } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { CtaButton } from '@/components/ui/section'
 import { HeroVisual } from '@/components/sections/hero-visual'
 
@@ -7,78 +7,64 @@ const easeOut = [0.21, 0.47, 0.32, 0.98] as const
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden px-5 pb-16 pt-32 sm:px-8 sm:pt-36 md:pb-24">
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="flex flex-col items-start">
-          <motion.a
-            href="#services"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: easeOut }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
-            AI-First Enterprise Engineering since 2006
-            <ArrowRight className="h-3.5 w-3.5" />
-          </motion.a>
+    <section
+      id="top"
+      className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden px-5 pb-16 pt-28 sm:px-8 sm:pb-20 sm:pt-32 md:pb-24"
+    >
+      {/* Full-bleed visual plane */}
+      <HeroVisual />
 
-          <motion.h1
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: easeOut, delay: 0.05 }}
-            className="font-heading text-4xl font-black leading-[1.03] tracking-tight text-balance sm:text-5xl md:text-6xl"
-          >
-            Engineering Tomorrow&apos;s Enterprise
-          </motion.h1>
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col">
+        <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, ease: easeOut }}
+          className="font-heading text-[clamp(3.5rem,14vw,9.5rem)] font-extrabold leading-[0.85] tracking-[-0.05em] text-foreground"
+        >
+          zCon
+        </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: easeOut, delay: 0.12 }}
-            className="mt-5 font-heading text-xl font-semibold text-foreground/90 sm:text-2xl"
-          >
-            AI-Powered Software.{' '}
-            <span className="bg-linear-to-r from-primary to-[#e11d48] bg-clip-text text-transparent">
-              Human-Led Execution.
-            </span>
-          </motion.p>
+        <div className="mt-8 grid max-w-3xl gap-6 border-t border-foreground/20 pt-8 md:mt-10 md:grid-cols-[1.2fr_0.8fr] md:gap-10 md:pt-10">
+          <div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: easeOut, delay: 0.08 }}
+              className="font-heading text-2xl font-bold leading-[1.1] tracking-tight text-balance sm:text-3xl md:text-4xl"
+            >
+              Engineering Tomorrow&apos;s Enterprise
+            </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: easeOut, delay: 0.18 }}
-            className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg"
-          >
-            zCon transforms complex ideas into production-ready systems through AI-first engineering,
-            enterprise software development, and dedicated innovation teams.
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: easeOut, delay: 0.16 }}
+              className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg"
+            >
+              AI-powered software. Human-led execution.
+            </motion.p>
+          </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 22 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: easeOut, delay: 0.24 }}
-            className="mt-8 flex flex-wrap items-center gap-3"
+            transition={{ duration: 0.7, ease: easeOut, delay: 0.22 }}
+            className="flex flex-col justify-end gap-4"
           >
-            <CtaButton href="#services" variant="primary">
-              Explore Capabilities
-              <ArrowRight className="h-4 w-4" />
-            </CtaButton>
-            <CtaButton href="/contact" variant="outline">
-              Book Consultation
-            </CtaButton>
+            <div className="flex flex-wrap items-center gap-3">
+              <CtaButton href="#services" variant="primary">
+                Explore Capabilities
+                <ArrowRight className="h-3.5 w-3.5" />
+              </CtaButton>
+              <CtaButton href="/contact" variant="outline">
+                Book Consultation
+              </CtaButton>
+            </div>
+            <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted-foreground">
+              Est. 2006 · 130+ enterprises · Americas · EMEA · APAC
+            </p>
           </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.32 }}
-            className="mt-8 font-mono text-xs uppercase tracking-[0.15em] text-muted-foreground"
-          >
-            Trusted by 130+ enterprises across Americas · EMEA · APAC
-          </motion.p>
         </div>
-
-        <HeroVisual />
       </div>
     </section>
   )

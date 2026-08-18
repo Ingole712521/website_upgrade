@@ -165,7 +165,7 @@ export function TalentPodsPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={viewportOnce}
               transition={{ duration: 0.55 }}
-              className="rounded-3xl border border-border bg-card/60 p-6 sm:p-8"
+              className="border border-foreground/15 bg-card p-6 sm:p-8"
             >
               <p className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-muted-foreground">
                 The Old Way
@@ -180,7 +180,7 @@ export function TalentPodsPage() {
                     transition={{ delay: 0.08 * index }}
                     className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground"
                   >
-                    <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-md bg-accent/10 text-accent">
+                    <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center border border-foreground/15 bg-muted text-muted-foreground">
                       <X className="h-3.5 w-3.5" />
                     </span>
                     {item}
@@ -195,12 +195,8 @@ export function TalentPodsPage() {
               viewport={viewportOnce}
               transition={{ duration: 0.55, delay: 0.08 }}
               whileHover={{ y: -3 }}
-              className="relative overflow-hidden rounded-3xl border border-primary/25 bg-primary/5 p-6 sm:p-8"
+              className="relative overflow-hidden border border-foreground/15 bg-foreground p-6 text-background sm:p-8"
             >
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -top-20 -right-16 h-48 w-48 rounded-full bg-primary/15 blur-3xl"
-              />
               <p className="relative font-mono text-[0.7rem] uppercase tracking-[0.16em] text-primary">
                 The zCon Pod Way
               </p>
@@ -212,9 +208,9 @@ export function TalentPodsPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={viewportOnce}
                     transition={{ delay: 0.08 * index + 0.1 }}
-                    className="flex items-start gap-3 text-sm leading-relaxed text-foreground/90"
+                    className="flex items-start gap-3 text-sm leading-relaxed text-background/85"
                   >
-                    <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-md bg-primary/15 text-primary">
+                    <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center bg-primary text-primary-foreground">
                       <Check className="h-3.5 w-3.5" />
                     </span>
                     {item}
@@ -237,7 +233,7 @@ export function TalentPodsPage() {
                 variants={staggerItem}
                 whileHover={{ y: -2 }}
                 transition={springSoft}
-                className="rounded-xl border border-border bg-background/70 px-3 py-1.5 text-xs text-muted-foreground"
+                className="border border-foreground/15 bg-background px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground"
               >
                 {tag}
               </motion.span>

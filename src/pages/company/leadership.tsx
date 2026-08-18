@@ -95,13 +95,13 @@ function LeaderRow({ leader, index }: { leader: Leader; index: number }) {
   return (
     <motion.article
       variants={staggerItem}
-      className="group border-b border-border py-8 first:border-t"
+      className="group border-b border-foreground/15 py-8 first:border-t"
     >
       <div className="grid gap-6 md:grid-cols-[5.5rem_1fr_auto] md:items-start md:gap-8">
         <motion.div
           whileHover={{ scale: 1.05, rotate: -2 }}
           transition={springSoft}
-          className="grid h-16 w-16 place-items-center rounded-2xl bg-linear-to-br from-primary/25 to-accent/20 font-heading text-lg font-bold text-foreground"
+          className="grid h-16 w-16 place-items-center border border-foreground/15 bg-primary/10 font-heading text-lg font-bold text-foreground"
         >
           {leader.initials}
         </motion.div>
@@ -159,7 +159,7 @@ function LeaderRow({ leader, index }: { leader: Leader; index: number }) {
               target="_blank"
               rel="noreferrer"
               aria-label={`${leader.name} LinkedIn`}
-              className="grid h-9 w-9 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+              className="grid h-9 w-9 place-items-center border border-foreground/15 text-muted-foreground transition-colors hover:border-primary hover:text-primary"
             >
               <LinkedInIcon className="h-4 w-4" />
             </a>
